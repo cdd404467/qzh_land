@@ -111,7 +111,7 @@
         } else if (i == 2){
             rightLab.text = model.recent;
         } else if (i == 3){
-            rightLab.text = [NSString stringWithFormat:@"押%@付%@",model.deposittype,model.firstpay];
+            rightLab.text = [NSString stringWithFormat:@"%@%@",model.deposittypeStr,model.pinlvStr];
         } else {
             rightLab.text = model.deposit;
             [rightLab.superview layoutIfNeeded];

@@ -226,6 +226,7 @@
     }
     if (index == 0) {
         MyWalletVC *vc = [[MyWalletVC alloc] init];
+//        TestSwift *vc = [[TestSwift alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
     } else if (index == 1) {
         MyBillVC *vc = [[MyBillVC alloc] init];

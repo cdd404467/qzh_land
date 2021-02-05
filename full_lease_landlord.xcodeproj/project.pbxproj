@@ -2654,7 +2654,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/full_lease_landlord/Libs/Framework",
 				);
-				GCC_PREFIX_HEADER = /Users/apple/full_lease_landlord/full_lease_landlord/QZHHeader.pch;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/full_lease_landlord/QZHHeader.pch";
 				INFOPLIST_FILE = full_lease_landlord/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2693,7 +2693,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/full_lease_landlord/Libs/Framework",
 				);
-				GCC_PREFIX_HEADER = /Users/apple/full_lease_landlord/full_lease_landlord/QZHHeader.pch;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/full_lease_landlord/QZHHeader.pch";
 				INFOPLIST_FILE = full_lease_landlord/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (

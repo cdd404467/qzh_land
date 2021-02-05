@@ -26,8 +26,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign)NSInteger status;
 //付款频率
 @property (nonatomic, assign)NSInteger pinlv;
+@property (nonatomic, copy)NSString *pinlvStr;
 //押几
 @property (nonatomic, copy)NSString *deposittype;
+@property (nonatomic, copy)NSString *deposittypeStr;
 //付几
 @property (nonatomic, copy)NSString *firstpay;
 //押金

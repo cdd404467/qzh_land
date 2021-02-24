@@ -24,8 +24,8 @@ class MyLease: BaseViewController, UITableViewDelegate, UITableViewDataSource {
         return table
     }()
     
-    lazy var dataSource: [MyLeaMod] = {
-        var arr = Array<MyLeaMod>.init()
+    lazy var dataSource: [ContractModel] = {
+        var arr = Array<ContractModel>.init()
         return arr
     }()
     
@@ -42,7 +42,10 @@ class MyLease: BaseViewController, UITableViewDelegate, UITableViewDataSource {
     func loadData() {
         let dict:[String: Any] = ["userPhone":User_Phone,"pageNumber":self.pageNumber]
         NetReq.request(url: "landlord/landlordcont/getTonercontractList", parameters: dict).success { json in
-            guard let list = [MyLeaMod].deserialize(from: json["data"]["dataList"].arrayObject) as? [MyLeaMod] else {return}
+//            guard let list = [MyLeaMod].deserialize(from: json["data"]["dataList"].arrayObject) as? [MyLeaMod] else {return}
+            
+            guard let list = ContractModel.mj_objectArray(withKeyValuesArray: json["data"]["dataList"].arrayObject) as? [ContractModel] else {return}
+        
             self.dataSource = list
             self.tableView.reloadData()
         }

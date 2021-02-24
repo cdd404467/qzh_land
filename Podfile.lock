@@ -15,6 +15,7 @@ PODS:
   - AFNetworking/UIKit (4.0.1):
     - AFNetworking/NSURLSession
   - Alamofire (5.4.1)
+  - AlipaySDK-iOS (15.7.9)
   - BRPickerView (2.6.7):
     - BRPickerView/AddressPickerView (= 2.6.7)
     - BRPickerView/Base (= 2.6.7)
@@ -48,6 +49,7 @@ PODS:
   - SnapKit (5.0.1)
   - SwiftyJSON (5.0.0)
   - TTLock (3.1.3)
+  - WechatOpenSDK (1.8.7.1)
   - YBImageBrowser (3.0.9):
     - YBImageBrowser/Core (= 3.0.9)
   - YBImageBrowser/Core (3.0.9):
@@ -62,6 +64,7 @@ PODS:
 DEPENDENCIES:
   - AFNetworking (~> 4.0.1)
   - Alamofire
+  - AlipaySDK-iOS (~> 15.7.9)
   - BRPickerView (~> 2.6.7)
   - DZNEmptyDataSet (~> 1.8.1)
   - HandyJSON
@@ -79,6 +82,7 @@ DEPENDENCIES:
   - SnapKit
   - SwiftyJSON
   - TTLock (~> 3.1.3)
+  - WechatOpenSDK (~> 1.8.7.1)
   - YBImageBrowser (~> 3.0.9)
   - YYImage (from `https://github.com/QiuYeHong90/YYImage.git`)
   - YYText (~> 1.0.7)
@@ -88,6 +92,7 @@ SPEC REPOS:
   trunk:
     - AFNetworking
     - Alamofire
+    - AlipaySDK-iOS
     - BRPickerView
     - DZNEmptyDataSet
     - HandyJSON
@@ -106,6 +111,7 @@ SPEC REPOS:
     - SnapKit
     - SwiftyJSON
     - TTLock
+    - WechatOpenSDK
     - YBImageBrowser
     - YYText
     - zhPopupController
@@ -122,6 +128,7 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
   Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
+  AlipaySDK-iOS: 94ff4c0e17c5e7d126b8207596d5033006534c25
   BRPickerView: 1d337e647974c43cc7152053d8b8f399f0b24c73
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   HandyJSON: 9e4e236f5d2dbefad5155a77417bbea438201c03
@@ -140,11 +147,12 @@ SPEC CHECKSUMS:
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
   TTLock: 1504c6ffd5c6fed1222eed7c6b48865224f32bd7
+  WechatOpenSDK: 6a4d1436c15b3b5fe2a0bd383f3046010186da44
   YBImageBrowser: 7ecc8bf33ffa5f3b94c397c29b4f3638dd37f527
   YYImage: 20ec986d18a8d0ad421619d166a9e628097e2433
   YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
   zhPopupController: 600aee950c86442c5cca0b078d94c71fe0e1c51e
 
-PODFILE CHECKSUM: 91a272db44590a31bdaa4305379491e1a7f7eec5
+PODFILE CHECKSUM: 120622d18294ec5e8344451b0dad9928e40d07ec
 
 COCOAPODS: 1.10.0

@@ -4,8 +4,6 @@
 
 #import "BaseViewController.h"
 //#import "QZHHeader.pch"
-#import "DecorateContactOnlineVC.h"
-
 
 
 #import "UIButton+Extension.h"
@@ -18,3 +16,4 @@
 #import "CountDown.h"
 #import <MJExtension.h>
 #import "ContractModel.h"
+#import "UIView+Effects.h"

@@ -10,6 +10,7 @@
 #import "PayResultModel.h"
 #import "MyBillDetailVC.h"
 #import "PayVC.h"
+#import "NSString+Extension.h"
 
 @interface PayStateVC ()
 @property (nonatomic, strong)UIImageView *stateImageView;
@@ -28,6 +29,20 @@
     [self checkPayState];
     [self.navBar.leftBtn removeTarget:nil action:NULL forControlEvents:UIControlEventAllEvents];
     [self.navBar.leftBtn addTarget:self action:@selector(backToDetail) forControlEvents:UIControlEventTouchUpInside];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    if([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
+        self.navigationController.interactivePopGestureRecognizer.enabled = NO;
+    }
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    if([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
+        self.navigationController.interactivePopGestureRecognizer.enabled = YES;
+    }
 }
 
 - (void)backToDetail {
@@ -95,6 +110,7 @@
     NSString *urlString = [NSString stringWithFormat:URLGet_Check_PayState,_orderID];
     DDWeakSelf;
     [NetTool getRequest:urlString Params:nil Success:^(id  _Nonnull json) {
+        NSLog(@"---- %@",json);
         if (JsonCode == 200) {
             [self.bottomRightBtn removeTarget:nil action:NULL forControlEvents:UIControlEventAllEvents];
             self.model = [PayCheckModel mj_objectWithKeyValues:json[@"data"]];
@@ -111,8 +127,8 @@
                 [[NSNotificationCenter defaultCenter] postNotificationName:NotificationName_PayMoneySuccess object:nil userInfo:nil];
                 [weakself stopAnimated];
                 weakself.stateImageView.image = [UIImage imageNamed:@"pay_success_image"];
-                if (self.model.UnpaidAmount > 0) {
-                    weakself.desLab.text = [NSString stringWithFormat:@"账单支付成功,账单总金额%@元,剩余%f元",self.model.Amount,self.model.UnpaidAmount];
+                if (self.model.unpaidAmount > 0) {
+                    weakself.desLab.text = [NSString stringWithFormat:@"账单支付成功,账单总金额%@元,剩余%@元",self.model.amount.correctPrecision,@(self.model.unpaidAmount).stringValue.correctPrecision];
                     [self.bottomRightBtn setTitle:@"继续支付" forState:UIControlStateNormal];
                     [self.bottomRightBtn addTarget:self action:@selector(goOnPay) forControlEvents:UIControlEventTouchUpInside];
                 } else {
@@ -156,7 +172,7 @@
 - (void)goOnPay {
     PayVC *vc = [[PayVC alloc] init];
     vc.billID = self.billID;
-    vc.recent = @(self.model.UnpaidAmount).stringValue;
+    vc.recent = @(self.model.unpaidAmount).stringValue;
     [self.navigationController pushViewController:vc animated:YES];
     
     NSArray *oldArr = self.navigationController.viewControllers;

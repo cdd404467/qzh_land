@@ -53,7 +53,7 @@
     
     NSArray *dataArr = @[[NSString stringWithFormat:@"%@至%@",_model.contract.begintime,_model.contract.endtime],
                          _model.contract.recent,
-                         [NSString stringWithFormat:@"%ld月一付",(long)_model.contract.pinlv],
+                         [NSString stringWithFormat:@"%@%@",_model.contract.deposittypeStr,_model.contract.pinlvStr],
                          _model.tenant.name,
                          _model.tenant.sex == 1 ? @"男" : @"女",
                          _model.tenant.phone

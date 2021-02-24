@@ -49,6 +49,7 @@
     if (!isDebug) {
         [self checkVersionUpdate];
     }
+    
 }
 
 
@@ -71,7 +72,7 @@
 - (void)checkVersionUpdate {
     NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
     NSString *current_Version = [infoDictionary objectForKey:@"CFBundleShortVersionString"];
-    NSDictionary *dict = @{@"companyId":@522,
+    NSDictionary *dict = @{@"companyId":@1,
                            @"currentBanben":current_Version?:@"",
                            @"type":@7
     };
@@ -120,11 +121,20 @@
 //点击回调
 - (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index {
     BannerModel *model = self.bannerArray[index];
-    if (model.jumpWay == 1 && isRightData(model.burl)) {
+    if (model.jumpWay == 1) {
         WebViewVC *vc = [[WebViewVC alloc] init];
         vc.webUrl = model.burl;
         vc.webTitle = model.title;
         [self.navigationController pushViewController:vc animated:YES];
+    }
+    //跳转到原生
+    else if (model.jumpWay == 2) {
+        if (model.original == 1) {
+            LandlordRecommendVC *vc = [[LandlordRecommendVC alloc] init];
+            vc.urlString = model.burl;
+            vc.navTitle = model.title;
+            [self.navigationController pushViewController:vc animated:YES];
+        }
     }
 }
 

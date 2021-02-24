@@ -17,7 +17,7 @@ enum SeverApiEnum: Int {
 
 let Server: SeverApiEnum = .Test1
 
-let SelectServerApi:(SeverApiEnum)->SeverApiEnum = {
+let SelectServerApi:(SeverApiEnum) -> SeverApiEnum = {
 //    if FastTool.isDebug() {
         return $0
 //    } else {

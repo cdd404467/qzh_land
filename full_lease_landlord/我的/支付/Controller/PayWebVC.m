@@ -8,7 +8,7 @@
 
 #import "PayWebVC.h"
 #import <WebKit/WebKit.h>
-#import "PayStateVC.h"
+
 
 @interface PayWebVC ()<WKNavigationDelegate>
 @property (nonatomic, strong)WKWebView *webView;
@@ -20,17 +20,6 @@
     [super viewDidLoad];
     self.navTitle = @"支付";
     [self loadWebView];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(checkPayState) name:NotificationName_ApplicationDidBecomeActive object:nil];
-}
-
-- (void)checkPayState {
-    PayStateVC *vc = [[PayStateVC alloc] init];
-    vc.billID = self.billID;
-    vc.orderID = self.orderID;
-    [self.navigationController pushViewController:vc animated:NO];
-    NSMutableArray *newArr = [self.navigationController.viewControllers mutableCopy];
-    [newArr removeObject:self];
-    self.navigationController.viewControllers = [newArr copy];
 }
 
 - (void)loadWebView {

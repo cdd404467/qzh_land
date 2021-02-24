@@ -8,6 +8,13 @@
 
 #import "TimeAbout.h"
 
+NSString * const TimeFormatYear = @"yyyy";
+NSString * const TimeFormatMonth = @"yyyy-MM";
+NSString * const TimeFormatDay = @"yyyy-MM-dd";
+NSString * const TimeFormatHour = @"yyyy-MM-dd HH";
+NSString * const TimeFormatMinute = @"yyyy-MM-dd HH:mm";
+NSString * const TimeFormatSecond = @"yyyy-MM-dd HH:mm:ss";
+
 @implementation TimeAbout
 //nsdate转string
 + (NSString*)dateToString:(NSDate*)date {
@@ -75,34 +82,34 @@
     return [self dateToString:targetDate];
 }
 
-/*
+
 //nsdate转string
-+ (NSString*)dateToString:(NSDate*)date format:(NSString *)format {
++ (NSString*)dateToString:(NSDate*)date format:(TimeFormat)format {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     dateFormatter.dateFormat = format;
-    [dateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:8]];//解决8小时时间差问题
+    [dateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:8 * 3600]];//解决8小时时间差问题
     NSString *currentDateString = [dateFormatter stringFromDate:date];
     return currentDateString;
 }
 
 //string转nsdata
-+ (NSDate *)stringToDate:(NSString *)string format:(NSString *)format {
++ (NSDate *)stringToDate:(NSString *)string format:(TimeFormat)format {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     dateFormatter.dateFormat = format;
-    [dateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:8]];//解决8小时时间差问题
+    [dateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:8 * 3600]];//解决8小时时间差问题
     NSDate *date = [dateFormatter dateFromString:string];
     
     return date;
 }
 
 //时间戳转string
-+ (NSString *)timeStampToString:(long)timeStamp format:(NSString *)format {
++ (NSString *)timeStampToString:(long)timeStamp format:(TimeFormat)format {
     NSDate *date = [NSDate dateWithTimeIntervalSince1970:timeStamp];
     return [self dateToString:date format:format];
 }
 
 //string转时间戳
-+ (long)stringToTimestamp:(NSString *)string format:(NSString *)format {
++ (long)stringToTimestamp:(NSString *)string format:(TimeFormat)format {
     NSDate *date = [self stringToDate:string format:format];
     return [self dateToTimeStamp:date];
 }
@@ -127,7 +134,7 @@
 + (long)dateToTimeStamp:(NSDate *)date {
    return [date timeIntervalSince1970];
 }
- 
+ /*
 //比较两个时间戳之间的时间差
 + (NSDateComponents *)timeDiffWithStartTime:(NSString *)starTime finishTime:(NSString *)finishTime format:(NSString *)format {
  NSDate *startDate  = [self stringToDate:starTime format:format];

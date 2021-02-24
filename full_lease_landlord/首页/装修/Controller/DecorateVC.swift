@@ -13,12 +13,12 @@ class DecorateVC: BaseViewController, WKNavigationDelegate {
     private var webView: WKWebView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navTitle = "装修"
+        navTitle = "装修"
         setupUI()
         
     }
     
-    func setupUI() {
+    private func setupUI() {
         webView = WKWebView.init()
         webView.backgroundColor = .white
         webView.navigationDelegate = self
@@ -66,7 +66,7 @@ class DecorateVC: BaseViewController, WKNavigationDelegate {
             make.right.equalTo(KFit_W(-24))
             make.size.bottom.equalTo(phoneAskBtn)
         }
-        phoneAskBtn.layout(with: .left, imageTitleSpace: 5)
+        entrustBtn.layout(with: .left, imageTitleSpace: 5)
     }
 
     @objc func contactPhone() {

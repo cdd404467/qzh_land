@@ -7,6 +7,7 @@
 //
 
 #import "PayCell.h"
+#import "NSString+Extension.h"
 
 @interface PayCell()
 @property (nonatomic, strong)UIImageView *paytypeImage;
@@ -104,7 +105,7 @@
     _model = model;
     [_paytypeImage sd_setImageWithURL:[NSURL URLWithString:model.iconClass]];
     _nameLab.text = model.value;
-    _poundageLab.text = [NSString stringWithFormat:@"手续费:%@",model.feeAmount];
+    _poundageLab.text = [NSString stringWithFormat:@"手续费:%@",model.feeAmount.correctPrecision];
 }
 
 + (instancetype)cellWithTableView:(UITableView *)tableView {

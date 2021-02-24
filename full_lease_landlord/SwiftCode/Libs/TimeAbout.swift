@@ -19,42 +19,47 @@ public enum TimeFormatString: String {
 
 class Time {
     //Date转String
+    @discardableResult
     class func dateToString(date: Date, format: TimeFormatString) -> String {
         let formatter = DateFormatter()
-//        formatter.timeZone = TimeZone.init(identifier: "UTC")
-        formatter.locale = Locale.init(identifier: "zh_CN")
+        formatter.timeZone = TimeZone.init(secondsFromGMT: 8 * 3600)
         formatter.dateFormat = format.rawValue
         let currentDateString: String = formatter.string(from: Date())
         return currentDateString
     }
     
     //String转Date
+    @discardableResult
     class func stringToDate(dateStr: String, format: TimeFormatString) -> Date {
         let formatter = DateFormatter()
         formatter.dateFormat = format.rawValue
-        formatter.locale = Locale.init(identifier: "zh_CN")
+        formatter.timeZone = TimeZone.init(secondsFromGMT: 8 * 3600)
         let date = formatter.date(from: dateStr)
         return date!
     }
     
     //时间戳转String
+    @discardableResult
     class func timeStampToString(timeStamp: Int, format: TimeFormatString) -> String {
         let date: Date = Date.init(timeIntervalSince1970: TimeInterval(timeStamp))
         return dateToString(date: date, format: format)
     }
     
     //String转时间戳
+    @discardableResult
     class func stringToTimestamp(dateStr: String, format: TimeFormatString) -> Int {
         let date = stringToDate(dateStr: dateStr, format: format)
         return dateToTimeStamp(date: date)
     }
         
     //Date转时间戳
+    @discardableResult
     class func dateToTimeStamp(date: Date) -> Int {
         return Int(date.timeIntervalSince1970)
     }
     
     //时间戳转Date
+    @discardableResult
     class func timeStampToDate(timeStamp: Int) -> Date {
         if (timeStamp.description.count != 10 || timeStamp.description.count != 13) {
             return Date()

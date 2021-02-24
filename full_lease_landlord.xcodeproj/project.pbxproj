@@ -82,6 +82,7 @@
 		1827001324FA267A0042BD66 /* LeaseContractDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1827001224FA267A0042BD66 /* LeaseContractDetailVC.m */; };
 		1827001624FA3FBC0042BD66 /* DevelopTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 1827001524FA3FBC0042BD66 /* DevelopTool.m */; };
 		1827001924FA601F0042BD66 /* QuickTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 1827001824FA601F0042BD66 /* QuickTool.m */; };
+		1827107F25D27012000F1C62 /* DecorateContactOnlineVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1827107E25D27012000F1C62 /* DecorateContactOnlineVC.swift */; };
 		182734F924FDFB720014A0C1 /* PaddingLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 182734F724FDFB710014A0C1 /* PaddingLabel.m */; };
 		182734FF24FE5A390014A0C1 /* MsgTypeListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 182734FE24FE5A390014A0C1 /* MsgTypeListVC.m */; };
 		1827350224FE5AC80014A0C1 /* MsgTypeListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1827350124FE5AC80014A0C1 /* MsgTypeListCell.m */; };
@@ -126,12 +127,14 @@
 		18369C7F25B56A62003FC3E8 /* SwiftPch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18369C7E25B56A62003FC3E8 /* SwiftPch.swift */; };
 		18369CCB25B80AB5003FC3E8 /* UITableView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 18369CCA25B80AB4003FC3E8 /* UITableView+Extension.m */; };
 		1837ECEC254A8BB9001453A9 /* WebViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1837ECEB254A8BB9001453A9 /* WebViewVC.m */; };
+		183A320725DF9FFA008EAB1E /* LandlordRecommendVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183A320625DF9FFA008EAB1E /* LandlordRecommendVC.swift */; };
+		183A320B25DFA48F008EAB1E /* RecommendNowVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183A320A25DFA48F008EAB1E /* RecommendNowVC.swift */; };
+		183A322125DFCB4C008EAB1E /* CommonTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183A322025DFCB4C008EAB1E /* CommonTool.swift */; };
 		183EBEBC25C118D800645237 /* QrCodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 183EBEBA25C118D800645237 /* QrCodeView.m */; };
 		184260DB259DB49000255441 /* NetMacro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184260DA259DB49000255441 /* NetMacro.swift */; };
 		1842612325A478AA00255441 /* PrivacyAgreementVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1842612225A478AA00255441 /* PrivacyAgreementVC.swift */; };
 		1842612D25A5873300255441 /* SystemSettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1842612C25A5873300255441 /* SystemSettingsVC.swift */; };
 		184261FB25A6FFED00255441 /* NullSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = 184261FA25A6FFEC00255441 /* NullSafe.m */; };
-		1842620F25A7040800255441 /* DecorateContactOnline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1842620E25A7040800255441 /* DecorateContactOnline.swift */; };
 		1842621325A705B800255441 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1842621225A705B800255441 /* UIView+Extension.swift */; };
 		185005812578B577006B32F3 /* LockOnlyOnePasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 185005552578B577006B32F3 /* LockOnlyOnePasswordViewController.m */; };
 		185005822578B577006B32F3 /* UpdateDoorLockVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 185005572578B577006B32F3 /* UpdateDoorLockVC.m */; };
@@ -239,10 +242,8 @@
 		18EC58562558093B00A393EA /* AddBankCardFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EC58552558093B00A393EA /* AddBankCardFooter.m */; };
 		18EC585C2558DFDE00A393EA /* AddBankCardVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EC585B2558DFDE00A393EA /* AddBankCardVC.m */; };
 		18EEC4C1257A39C2002D2DDD /* HomeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EEC4C0257A39C2002D2DDD /* HomeView.m */; };
-		18EEC4E4257DDD92002D2DDD /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18EEC4E0257DDD92002D2DDD /* libWeChatSDK.a */; };
 		18EEC4F5257DFA3F002D2DDD /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 18EEC4F4257DFA3F002D2DDD /* libc++.tbd */; };
 		18EEC4FA257DFC50002D2DDD /* WXApiManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EEC4F9257DFC4F002D2DDD /* WXApiManager.m */; };
-		18EEC501257E1B58002D2DDD /* DecorateContactOnlineVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EEC500257E1B58002D2DDD /* DecorateContactOnlineVC.m */; };
 		18F306CA251CA6FD007CFA6D /* PayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F306C9251CA6FD007CFA6D /* PayModel.m */; };
 		18F306CE251DC1D6007CFA6D /* PayResultModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F306CD251DC1D6007CFA6D /* PayResultModel.m */; };
 		18F306D1251DC3FC007CFA6D /* PayWebVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F306D0251DC3FC007CFA6D /* PayWebVC.m */; };
@@ -436,6 +437,7 @@
 		1827001524FA3FBC0042BD66 /* DevelopTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DevelopTool.m; sourceTree = "<group>"; };
 		1827001724FA601F0042BD66 /* QuickTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuickTool.h; sourceTree = "<group>"; };
 		1827001824FA601F0042BD66 /* QuickTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuickTool.m; sourceTree = "<group>"; };
+		1827107E25D27012000F1C62 /* DecorateContactOnlineVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecorateContactOnlineVC.swift; sourceTree = "<group>"; };
 		182734F724FDFB710014A0C1 /* PaddingLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaddingLabel.m; sourceTree = "<group>"; };
 		182734F824FDFB720014A0C1 /* PaddingLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaddingLabel.h; sourceTree = "<group>"; };
 		182734FD24FE5A390014A0C1 /* MsgTypeListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MsgTypeListVC.h; sourceTree = "<group>"; };
@@ -510,13 +512,15 @@
 		18369CCA25B80AB4003FC3E8 /* UITableView+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITableView+Extension.m"; sourceTree = "<group>"; };
 		1837ECEA254A8BB9001453A9 /* WebViewVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebViewVC.h; sourceTree = "<group>"; };
 		1837ECEB254A8BB9001453A9 /* WebViewVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebViewVC.m; sourceTree = "<group>"; };
+		183A320625DF9FFA008EAB1E /* LandlordRecommendVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandlordRecommendVC.swift; sourceTree = "<group>"; };
+		183A320A25DFA48F008EAB1E /* RecommendNowVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendNowVC.swift; sourceTree = "<group>"; };
+		183A322025DFCB4C008EAB1E /* CommonTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonTool.swift; sourceTree = "<group>"; };
 		183EBEBA25C118D800645237 /* QrCodeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QrCodeView.m; sourceTree = "<group>"; };
 		183EBEBB25C118D800645237 /* QrCodeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QrCodeView.h; sourceTree = "<group>"; };
 		184260DA259DB49000255441 /* NetMacro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetMacro.swift; sourceTree = "<group>"; };
 		1842612225A478AA00255441 /* PrivacyAgreementVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyAgreementVC.swift; sourceTree = "<group>"; };
 		1842612C25A5873300255441 /* SystemSettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemSettingsVC.swift; sourceTree = "<group>"; };
 		184261FA25A6FFEC00255441 /* NullSafe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NullSafe.m; sourceTree = "<group>"; };
-		1842620E25A7040800255441 /* DecorateContactOnline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecorateContactOnline.swift; sourceTree = "<group>"; };
 		1842621225A705B800255441 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		185005552578B577006B32F3 /* LockOnlyOnePasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LockOnlyOnePasswordViewController.m; sourceTree = "<group>"; };
 		185005562578B577006B32F3 /* SmartDoorLockVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmartDoorLockVC.h; sourceTree = "<group>"; };
@@ -720,15 +724,9 @@
 		18EC585B2558DFDE00A393EA /* AddBankCardVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddBankCardVC.m; sourceTree = "<group>"; };
 		18EEC4BF257A39C2002D2DDD /* HomeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeView.h; sourceTree = "<group>"; };
 		18EEC4C0257A39C2002D2DDD /* HomeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeView.m; sourceTree = "<group>"; };
-		18EEC4E0257DDD92002D2DDD /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
-		18EEC4E1257DDD92002D2DDD /* WechatAuthSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatAuthSDK.h; sourceTree = "<group>"; };
-		18EEC4E2257DDD92002D2DDD /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
-		18EEC4E3257DDD92002D2DDD /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
 		18EEC4F4257DFA3F002D2DDD /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		18EEC4F8257DFC4F002D2DDD /* WXApiManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiManager.h; sourceTree = "<group>"; };
 		18EEC4F9257DFC4F002D2DDD /* WXApiManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXApiManager.m; sourceTree = "<group>"; };
-		18EEC4FF257E1B58002D2DDD /* DecorateContactOnlineVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DecorateContactOnlineVC.h; sourceTree = "<group>"; };
-		18EEC500257E1B58002D2DDD /* DecorateContactOnlineVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DecorateContactOnlineVC.m; sourceTree = "<group>"; };
 		18F306C8251CA6FD007CFA6D /* PayModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PayModel.h; sourceTree = "<group>"; };
 		18F306C9251CA6FD007CFA6D /* PayModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PayModel.m; sourceTree = "<group>"; };
 		18F306CC251DC1D6007CFA6D /* PayResultModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PayResultModel.h; sourceTree = "<group>"; };
@@ -748,7 +746,6 @@
 				18EEC4F5257DFA3F002D2DDD /* libc++.tbd in Frameworks */,
 				183112CE256264A9009802FC /* IdcardQuality.framework in Frameworks */,
 				183112BE25625421009802FC /* AipOcrSdk.framework in Frameworks */,
-				18EEC4E4257DDD92002D2DDD /* libWeChatSDK.a in Frameworks */,
 				18BC523D255A485C0056C249 /* JhtVerificationCodeView.framework in Frameworks */,
 				183112AC256253C0009802FC /* AipBase.framework in Frameworks */,
 				CA82730DF8895E8D5CD4AE8E /* Pods_full_lease_landlord.framework in Frameworks */,
@@ -777,6 +774,7 @@
 			children = (
 				1827DCC425ADA8F80073E02C /* Base */,
 				180456E62521E820003B23D3 /* Extension */,
+				183A321525DFC816008EAB1E /* Tools */,
 				180456E02521E693003B23D3 /* Libs */,
 				180456C32521DC6F003B23D3 /* full_lease_landlord-Bridging-Header.h */,
 				180456C92521DCF7003B23D3 /* TestSwift.swift */,
@@ -791,8 +789,6 @@
 				180456E12521E72E003B23D3 /* MacroFile.swift */,
 				184260DA259DB49000255441 /* NetMacro.swift */,
 				18CE13D625C1701700764064 /* PublicPara.swift */,
-				185088052599C71700699B46 /* FastTool.swift */,
-				185088232599CF2800699B46 /* NetTool.swift */,
 				18369C7E25B56A62003FC3E8 /* SwiftPch.swift */,
 				18CE152825C93D9C00764064 /* TimeAbout.swift */,
 			);
@@ -914,7 +910,6 @@
 		1826C36524EFF9FC0016E725 /* full_lease_landlord */ = {
 			isa = PBXGroup;
 			children = (
-				1831572E2514BB200000388A /* 全住房东端.entitlements */,
 				18BC527B255BCA2A0056C249 /* 租客端公用 */,
 				180AAE3B253DB7070033E32F /* TestCode */,
 				180456C22521DBE2003B23D3 /* SwiftCode */,
@@ -960,6 +955,7 @@
 				1826C36C24EFF9FC0016E725 /* ViewController.h */,
 				1826C36D24EFF9FC0016E725 /* ViewController.m */,
 				1826C36F24EFF9FC0016E725 /* Main.storyboard */,
+				1831572E2514BB200000388A /* 全住房东端.entitlements */,
 				1826C37224EFF9FE0016E725 /* Assets.xcassets */,
 				1826C37424EFF9FE0016E725 /* LaunchScreen.storyboard */,
 				1826C37724EFF9FE0016E725 /* Info.plist */,
@@ -1090,6 +1086,7 @@
 				18369D1325BA79DD003FC3E8 /* 租客合同 */,
 				18369D1B25BA7A64003FC3E8 /* 房屋委托 */,
 				18369D1D25BA7A97003FC3E8 /* 装修 */,
+				183A31B925DF656C008EAB1E /* 房东推荐 */,
 			);
 			path = "首页";
 			sourceTree = "<group>";
@@ -1295,10 +1292,8 @@
 		18369D1E25BA7AA5003FC3E8 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				18EEC4FF257E1B58002D2DDD /* DecorateContactOnlineVC.h */,
-				18EEC500257E1B58002D2DDD /* DecorateContactOnlineVC.m */,
 				18C412FF2594A19D00C39F1F /* DecorateVC.swift */,
-				1842620E25A7040800255441 /* DecorateContactOnline.swift */,
+				1827107E25D27012000F1C62 /* DecorateContactOnlineVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1688,6 +1683,33 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		183A31B925DF656C008EAB1E /* 房东推荐 */ = {
+			isa = PBXGroup;
+			children = (
+				183A31BA25DF658E008EAB1E /* Controller */,
+			);
+			path = "房东推荐";
+			sourceTree = "<group>";
+		};
+		183A31BA25DF658E008EAB1E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				183A320625DF9FFA008EAB1E /* LandlordRecommendVC.swift */,
+				183A320A25DFA48F008EAB1E /* RecommendNowVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		183A321525DFC816008EAB1E /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				183A322025DFCB4C008EAB1E /* CommonTool.swift */,
+				185088232599CF2800699B46 /* NetTool.swift */,
+				185088052599C71700699B46 /* FastTool.swift */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
 		185005532578B577006B32F3 /* 智能门锁 */ = {
 			isa = PBXGroup;
 			children = (
@@ -2039,10 +2061,6 @@
 			children = (
 				18EEC4F8257DFC4F002D2DDD /* WXApiManager.h */,
 				18EEC4F9257DFC4F002D2DDD /* WXApiManager.m */,
-				18EEC4E0257DDD92002D2DDD /* libWeChatSDK.a */,
-				18EEC4E1257DDD92002D2DDD /* WechatAuthSDK.h */,
-				18EEC4E3257DDD92002D2DDD /* WXApi.h */,
-				18EEC4E2257DDD92002D2DDD /* WXApiObject.h */,
 			);
 			path = Weixin;
 			sourceTree = "<group>";
@@ -2078,6 +2096,7 @@
 				1826C36124EFF9FC0016E725 /* Resources */,
 				1831128125624603009802FC /* Embed Frameworks */,
 				C234D2B7D3650B75A3679A83 /* [CP] Embed Pods Frameworks */,
+				6F7D72350E7BC0F4B4792135 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -2196,6 +2215,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		6F7D72350E7BC0F4B4792135 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-full_lease_landlord/Pods-full_lease_landlord-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-full_lease_landlord/Pods-full_lease_landlord-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-full_lease_landlord/Pods-full_lease_landlord-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		C234D2B7D3650B75A3679A83 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -2292,7 +2328,6 @@
 				1827FFCF24F78DB90042BD66 /* MessageListVC.m in Sources */,
 				1827FFDB24F79EA70042BD66 /* ContactManagerVC.m in Sources */,
 				18213F1B24F64DC9000B939F /* CommonlyUsedTools.m in Sources */,
-				18EEC501257E1B58002D2DDD /* DecorateContactOnlineVC.m in Sources */,
 				1850058D2578B577006B32F3 /* LockCycleScrollGujiaCell.m in Sources */,
 				185006532578DAD1006B32F3 /* PCLockLabel.m in Sources */,
 				18213EF124F64552000B939F /* HouseInfoModel.m in Sources */,
@@ -2383,6 +2418,7 @@
 				185005832578B577006B32F3 /* KeyManagerDetailVC.m in Sources */,
 				1827FFBA24F75ADB0042BD66 /* TimeAbout.m in Sources */,
 				1827FFCB24F780960042BD66 /* UpdateView.m in Sources */,
+				183A322125DFCB4C008EAB1E /* CommonTool.swift in Sources */,
 				18213ED224F62F42000B939F /* NetTool.m in Sources */,
 				18BC52E4255E792C0056C249 /* MyBankCardCheckCell.m in Sources */,
 				18BC52ED255E89C70056C249 /* CheckBankCardNumVC.m in Sources */,
@@ -2406,7 +2442,6 @@
 				1826C3D424F008DF0016E725 /* MineVC.m in Sources */,
 				1850064F2578DAD1006B32F3 /* PCCircleViewConst.m in Sources */,
 				1858FFEF2562382900E593C8 /* NSMutableString+AvoidCrash.m in Sources */,
-				1842620F25A7040800255441 /* DecorateContactOnline.swift in Sources */,
 				182FF484251E003800042DC9 /* PayStateVC.m in Sources */,
 				1827001624FA3FBC0042BD66 /* DevelopTool.m in Sources */,
 				1850058A2578B577006B32F3 /* SmartDoorInfoModel.m in Sources */,
@@ -2427,6 +2462,7 @@
 				1827351224FF97A80014A0C1 /* BillModel.m in Sources */,
 				18BC526E255A971A0056C249 /* PayPasswordVC.m in Sources */,
 				1858FFF22562382900E593C8 /* NSMutableAttributedString+AvoidCrash.m in Sources */,
+				183A320725DF9FFA008EAB1E /* LandlordRecommendVC.swift in Sources */,
 				1827FFBB24F75ADB0042BD66 /* AlertSystem.m in Sources */,
 				1827FFE124F7CAE30042BD66 /* IncomeDetailVC.m in Sources */,
 				18BC51EA25594F360056C249 /* MutableCellModel.m in Sources */,
@@ -2437,6 +2473,7 @@
 				1858FFF02562382900E593C8 /* NSObject+AvoidCrash.m in Sources */,
 				1858FFED2562382900E593C8 /* NSDictionary+AvoidCrash.m in Sources */,
 				1826C3C224F001990016E725 /* UIColor+Hex.m in Sources */,
+				183A320B25DFA48F008EAB1E /* RecommendNowVC.swift in Sources */,
 				1826C3BF24F001990016E725 /* UIView+Extension.m in Sources */,
 				1827000D24F8FFC90042BD66 /* SignOnlineVC.m in Sources */,
 				1864D29724FCD51F003A359F /* OwnerIfonVC.m in Sources */,
@@ -2444,6 +2481,7 @@
 				185005A32578B6ED006B32F3 /* ListInfoBaseCell.m in Sources */,
 				18263B592501EEED00625600 /* EmptyCompensateModel.m in Sources */,
 				180AAE31253D77840033E32F /* PreviewConVC.m in Sources */,
+				1827107F25D27012000F1C62 /* DecorateContactOnlineVC.swift in Sources */,
 				185005852578B577006B32F3 /* SmartDoorLockVC.m in Sources */,
 				1826C3CD24F008080016E725 /* BaseNavigationController.m in Sources */,
 				1827000A24F8F4470042BD66 /* ContractConfirmVC.m in Sources */,
@@ -2641,7 +2679,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "full_lease_landlord/全住房东端.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 34QF648657;
 				ENABLE_BITCODE = NO;
@@ -2665,7 +2703,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/full_lease_landlord/Libs/ThirdParty/Weixin",
 				);
-				MARKETING_VERSION = 2.1.4;
+				MARKETING_VERSION = 2.1.5;
 				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS -DDEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.girders.qzhLandlord;
 				PRODUCT_MODULE_NAME = full_lease_landlord;
@@ -2674,6 +2712,7 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
+				WARNING_CFLAGS = "-Wno-documentation";
 			};
 			name = Debug;
 		};
@@ -2685,7 +2724,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "full_lease_landlord/全住房东端.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 34QF648657;
 				ENABLE_BITCODE = NO;
@@ -2704,13 +2743,14 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/full_lease_landlord/Libs/ThirdParty/Weixin",
 				);
-				MARKETING_VERSION = 2.1.4;
+				MARKETING_VERSION = 2.1.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.girders.qzhLandlord;
 				PRODUCT_MODULE_NAME = full_lease_landlord;
 				PRODUCT_NAME = full_lease_landlord;
 				SWIFT_OBJC_BRIDGING_HEADER = "full_lease_landlord/SwiftCode/full_lease_landlord-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
+				WARNING_CFLAGS = "-Wno-documentation";
 			};
 			name = Release;
 		};

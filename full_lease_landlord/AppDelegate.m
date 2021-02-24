@@ -20,6 +20,7 @@
 #import "AppDelegate+Init.h"
 #import <TTLock/TTLock.h>
 #import "WXApiManager.h"
+#import <AlipaySDK/AlipaySDK.h>
 
 #if !TARGET_IPHONE_SIMULATOR
 #import <AipOcrSdk/AipOcrSdk.h>
@@ -70,9 +71,15 @@
     if (url && urlString.length > 2 && [[urlString substringToIndex:2] isEqualToString:@"wx"]) {
         return [WXApi handleOpenURL:url delegate:[WXApiManager sharedManager]];
     }
+    
+    if ([url.host isEqualToString:@"safepay"]) {
+        [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
+            
+        }];
+    }
+    
     return YES;
 }
-
 
 #pragma mark - APN代理
 //推送通知获取设备
@@ -219,7 +226,7 @@
     [[AipOcrService shardService] authWithAK:@"Qk8vCsW72ThVfOSX0qYBsQeQ" andSK:@"DZNlmW8XGBWnGw138RWL9EgFXkGHpqXq"];
 #endif
     /*** 注册微信 - 官方SDK ***/
-    [WXApi registerApp:@"wx2a1f65135ba300ff" universalLink:@"https://qzhimg.comprorent.com/"];
+    [WXApi registerApp:wxAppID universalLink:@"https://qzhimg.comprorent.com/"];
     [TTLock setupBluetooth:^(TTBluetoothState state) {
         NSLog(@"##############  TTLock is working, bluetooth state: %ld  ##############",(long)state);
     }];

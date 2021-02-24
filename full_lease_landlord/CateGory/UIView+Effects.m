@@ -383,7 +383,7 @@
     } else {
         // 只有边框
         self.layer.masksToBounds = true;
-        self.layer.borderWidth   = self.privateBorderWidth;
+        self.layer.borderWidth   = self.privateBorderWidth / 2;
         self.layer.borderColor   = self.privateBorderColor.CGColor;
     }
 }

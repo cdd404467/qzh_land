@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+@class WeixinPayModel;
 NS_ASSUME_NONNULL_BEGIN
 
 @interface PayResultModel : NSObject
@@ -16,6 +16,13 @@ NS_ASSUME_NONNULL_BEGIN
 //订单编号
 @property (nonatomic, copy)NSString *orderid;
 
+@property (nonatomic, copy) NSString *appid;
+@property (nonatomic, copy) NSString *partnerid;
+@property (nonatomic, copy) NSString *prepay_id;
+@property (nonatomic, copy) NSString *noncestr;
+@property (nonatomic, assign) int timestamp;
+@property (nonatomic, copy) NSString *packagestr;
+@property (nonatomic, copy) NSString *sign;
 @end
 
 
@@ -23,13 +30,13 @@ NS_ASSUME_NONNULL_BEGIN
 //WaitPay-待支付，Success-支付成功，Canceled-已取消，Failed-支付失败，Other-其他，Checking-审批中(线下支付存在)，Refused-审批拒绝(线下支付存在)
 @property (nonatomic, copy)NSString *status;
 //总金额
-@property (nonatomic, copy)NSString *Amount;
+@property (nonatomic, copy)NSString *amount;
 //未支付金额
-@property (nonatomic, assign)double UnpaidAmount;
+@property (nonatomic, assign)double unpaidAmount;
 //已支付金额
-@property (nonatomic, assign)double AmountPaid;
+@property (nonatomic, assign)double amountPaid;
 //账单编号数组
-@property (nonatomic, copy)NSArray *BillIds;
+@property (nonatomic, copy)NSArray *billIds;
 @end
 
 

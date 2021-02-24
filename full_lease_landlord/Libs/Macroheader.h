@@ -68,7 +68,7 @@
 #define JsonCode [json[@"code"] integerValue]
 
 #define BR_Appearance [AppGlobalSet pickViewStyle]
-
+#define wxAppID @"wx2a1f65135ba300ff"
 
 
 //判断后台返回数据是合法的

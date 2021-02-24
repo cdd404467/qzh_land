@@ -9,7 +9,7 @@
 import Foundation
 
 
-//被OC和swift同时调用的用类方法，只是swift调用的用属性
+//被OC和swift同时调用的用类方法，只swift调用的用属性
 public class PublicPara: NSObject {
     
     @objc class func screen_bounds() -> CGRect {

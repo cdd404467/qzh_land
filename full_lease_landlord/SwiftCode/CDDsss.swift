@@ -9,10 +9,9 @@
 import UIKit
 
 class CDDsss: BaseViewController {
-
     typealias textBlock = (String) -> Void
     var block :textBlock?
-    
+    var cddDele: TestPro?
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -20,7 +19,6 @@ class CDDsss: BaseViewController {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer.init(target: self, action: #selector(ooo))
         
         view.addGestureRecognizer(tap)
-        
         
     }
     
@@ -31,11 +29,14 @@ class CDDsss: BaseViewController {
 
     @objc func ooo(){
         
-        if let bk = self.block {
-            bk("name")
-        }
+        self.cddDele?.myTest(name: "cddvvv")
         
         
     }
 
+}
+
+
+@objc protocol TestPro {
+   func myTest(name: String)
 }

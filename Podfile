@@ -18,12 +18,14 @@ target 'full_lease_landlord' do
     pod 'DZNEmptyDataSet', '~> 1.8.1'
     pod 'MJRefresh', '~> 3.4.3'
     pod 'zhPopupController', '~> 2.0.0'
- #极光推送
     pod 'JPush', '~> 3.3.6'
     pod 'TTLock', '~> 3.1.3'    
     pod 'YBImageBrowser', '~> 3.0.9'
     pod 'YYImage', :git => 'https://github.com/QiuYeHong90/YYImage.git' #解决图片查看器的黑屏
-
+    pod 'WechatOpenSDK', '~> 1.8.7.1'
+    pod 'AlipaySDK-iOS', '~> 15.7.9'
+    
+ #swift库
     pod 'SnapKit'
     pod 'Alamofire'
     pod 'SwiftyJSON'

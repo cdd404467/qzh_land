@@ -16,8 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 @interface PayTableHeader : UIView
-@property (nonatomic, strong)UILabel *payMoneyLab;
-@property (nonatomic, strong)UILabel *timeLab;
+@property (nonatomic, strong)UITextField *moneyTF;
+@property (nonatomic, strong)UILabel *tipLab;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -247,7 +247,7 @@ typedef void(^SelectBlock)(NSInteger index);
 
 - (void)setModel:(BankCardModel *)model {
     _model = model;
-    _nameLab.text = [NSString stringWithFormat:@"%@ %@ (%@)",model.bankname,model.bankCardType,model.account];
+    _nameLab.text = [NSString stringWithFormat:@"%@ %@ (%@)",model.bankname,RightDataSafe(model.bankCardType),model.account];
     _subTitleLab.text = model.timeToAccount;
 }
 

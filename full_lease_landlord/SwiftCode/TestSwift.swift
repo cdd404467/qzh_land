@@ -8,7 +8,8 @@
 
 import UIKit
 
-class TestSwift: BaseViewController {
+class TestSwift: BaseViewController, TestPro {
+    
     typealias cddBlock = (_ name:String) -> Void
     @objc var cblock :cddBlock?
     
@@ -25,17 +26,21 @@ class TestSwift: BaseViewController {
         self.cblock = block
     }
     
+    func myTest(name: String) {
+        print(name)
+    }
+    
     @objc func ttt() {
-        if let bk = self.cblock {
-            bk("cdd")
-        }
-        
-//        let vc = CDDsss()
-//        vc.block = { name in
-//            print(name)
+//        if let bk = self.cblock {
+//            bk("cdd")
 //        }
-//        navigationController?.pushViewController(vc, animated: true)
+        
+        let vc = CDDsss()
+        vc.cddDele = self
+        navigationController?.pushViewController(vc, animated: true)
     }
     
 
 }
+
+

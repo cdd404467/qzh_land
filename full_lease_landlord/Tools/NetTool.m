@@ -10,6 +10,7 @@
 #import <AFNetworking.h>
 #import "BaseViewController.h"
 #import "LoginVC.h"
+#import "full_lease_landlord-Swift.h"
 
 @implementation NetTool
 + (void)dealErrorWithJson:(id)json {
@@ -26,15 +27,8 @@
 
 + (void)showErrorMsg:(NSString *)msg {
     [CddHud hideHUD:nil];
+    [CddHud hideHUD:[Help currentVC].view];
     [CddHud showTextOnly:msg view:nil];
-}
-
-//请求出错显示HUD
-+ (void)showFailMsg:(NSDictionary *)dict {
-    NSData *errorData = [dict objectForKey:AFNetworkingOperationFailingURLResponseDataErrorKey];
-    NSDictionary *msgDict = [NSJSONSerialization JSONObjectWithData:errorData options:NSJSONReadingAllowFragments error:nil];
-    [self showErrorMsg:msgDict[@"message"]];
-    NSLog(@"Error-------- : %@",msgDict);
 }
 
 /* 网络请求封装  */
@@ -64,8 +58,8 @@
         if (success) {
             success(responseObject);
             if ([responseObject[@"code"] integerValue] != 200) {
-                [self showErrorMsg:responseObject[@"message"]];
                 [self dealErrorWithJson:responseObject];
+                [self showErrorMsg:responseObject[@"message"]];
             }
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -92,8 +86,8 @@
             if ([responseObject[@"code"] integerValue] != 200) {
                 dispatch_async(dispatch_get_global_queue(0, 0), ^{
                     dispatch_async(dispatch_get_main_queue(), ^{
-                        [self showErrorMsg:responseObject[@"message"]];
                         [self dealErrorWithJson:responseObject];
+                        [self showErrorMsg:responseObject[@"message"]];
                     });
                 });
             }
@@ -135,8 +129,8 @@
         if (success) {
             success(responseObject);
             if ([responseObject[@"code"] integerValue] != 200) {
-                [self showErrorMsg:responseObject[@"message"]];
                 [self dealErrorWithJson:responseObject];
+                [self showErrorMsg:responseObject[@"message"]];
             }
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -165,8 +159,8 @@
             if ([responseObject[@"code"] integerValue] != 200) {
                 dispatch_async(dispatch_get_global_queue(0, 0), ^{
                     dispatch_async(dispatch_get_main_queue(), ^{
-                        [self showErrorMsg:responseObject[@"message"]];
                         [self dealErrorWithJson:responseObject];
+                        [self showErrorMsg:responseObject[@"message"]];
                     });
                 });
             }

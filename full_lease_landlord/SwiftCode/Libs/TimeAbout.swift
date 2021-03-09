@@ -8,7 +8,7 @@
 
 import Foundation
 
-public enum TimeFormatString: String {
+enum TimeFormatString: String {
     case year = "yyyy"
     case month = "yyyy-MM"
     case day = "yyyy-MM-dd"

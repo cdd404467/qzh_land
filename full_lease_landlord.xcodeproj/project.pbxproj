@@ -99,7 +99,6 @@
 		1827FFBA24F75ADB0042BD66 /* TimeAbout.m in Sources */ = {isa = PBXBuildFile; fileRef = 1827FFB824F75ADA0042BD66 /* TimeAbout.m */; };
 		1827FFBB24F75ADB0042BD66 /* AlertSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 1827FFB924F75ADA0042BD66 /* AlertSystem.m */; };
 		1827FFC124F765770042BD66 /* CddActionSheetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1827FFC024F765770042BD66 /* CddActionSheetView.m */; };
-		1827FFC424F768120042BD66 /* VersionTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 1827FFC324F768120042BD66 /* VersionTool.m */; };
 		1827FFC724F77DC90042BD66 /* UIButton+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1827FFC624F77DC90042BD66 /* UIButton+Extension.m */; };
 		1827FFCB24F780960042BD66 /* UpdateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1827FFCA24F780960042BD66 /* UpdateView.m */; };
 		1827FFCF24F78DB90042BD66 /* MessageListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1827FFCE24F78DB90042BD66 /* MessageListVC.m */; };
@@ -465,8 +464,6 @@
 		1827FFB924F75ADA0042BD66 /* AlertSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertSystem.m; sourceTree = "<group>"; };
 		1827FFBF24F765770042BD66 /* CddActionSheetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CddActionSheetView.h; sourceTree = "<group>"; };
 		1827FFC024F765770042BD66 /* CddActionSheetView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CddActionSheetView.m; sourceTree = "<group>"; };
-		1827FFC224F768120042BD66 /* VersionTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VersionTool.h; sourceTree = "<group>"; };
-		1827FFC324F768120042BD66 /* VersionTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VersionTool.m; sourceTree = "<group>"; };
 		1827FFC524F77DC90042BD66 /* UIButton+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Extension.h"; sourceTree = "<group>"; };
 		1827FFC624F77DC90042BD66 /* UIButton+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Extension.m"; sourceTree = "<group>"; };
 		1827FFC924F780960042BD66 /* UpdateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdateView.h; sourceTree = "<group>"; };
@@ -789,8 +786,8 @@
 				180456E12521E72E003B23D3 /* MacroFile.swift */,
 				184260DA259DB49000255441 /* NetMacro.swift */,
 				18CE13D625C1701700764064 /* PublicPara.swift */,
-				18369C7E25B56A62003FC3E8 /* SwiftPch.swift */,
 				18CE152825C93D9C00764064 /* TimeAbout.swift */,
+				18369C7E25B56A62003FC3E8 /* SwiftPch.swift */,
 			);
 			path = Libs;
 			sourceTree = "<group>";
@@ -1001,8 +998,6 @@
 				18213F1524F64737000B939F /* HelperTool.m */,
 				18213ED024F62F41000B939F /* NetTool.h */,
 				18213ED124F62F42000B939F /* NetTool.m */,
-				1827FFC224F768120042BD66 /* VersionTool.h */,
-				1827FFC324F768120042BD66 /* VersionTool.m */,
 				1827001424FA3FBC0042BD66 /* DevelopTool.h */,
 				1827001524FA3FBC0042BD66 /* DevelopTool.m */,
 				1827001724FA601F0042BD66 /* QuickTool.h */,
@@ -2435,7 +2430,6 @@
 				184261FB25A6FFED00255441 /* NullSafe.m in Sources */,
 				18BC527E255BCAB70056C249 /* SelectBankCell.m in Sources */,
 				18EEC4FA257DFC50002D2DDD /* WXApiManager.m in Sources */,
-				1827FFC424F768120042BD66 /* VersionTool.m in Sources */,
 				1827DCCC25ADAF340073E02C /* MyLeaModel.swift in Sources */,
 				185005F52578CFC3006B32F3 /* GKCycleScrollViewCell.m in Sources */,
 				1826C37924EFF9FE0016E725 /* main.m in Sources */,
@@ -2703,7 +2697,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/full_lease_landlord/Libs/ThirdParty/Weixin",
 				);
-				MARKETING_VERSION = 2.1.5;
+				MARKETING_VERSION = 2.1.6;
 				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS -DDEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.girders.qzhLandlord;
 				PRODUCT_MODULE_NAME = full_lease_landlord;
@@ -2743,7 +2737,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/full_lease_landlord/Libs/ThirdParty/Weixin",
 				);
-				MARKETING_VERSION = 2.1.5;
+				MARKETING_VERSION = 2.1.6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.girders.qzhLandlord;
 				PRODUCT_MODULE_NAME = full_lease_landlord;
 				PRODUCT_NAME = full_lease_landlord;

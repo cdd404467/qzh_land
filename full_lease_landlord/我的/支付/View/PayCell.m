@@ -108,13 +108,4 @@
     _poundageLab.text = [NSString stringWithFormat:@"手续费:%@",model.feeAmount.correctPrecision];
 }
 
-+ (instancetype)cellWithTableView:(UITableView *)tableView {
-    static NSString *identifier = @"PayCell";
-    PayCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-    if (cell == nil) {
-        cell = [[PayCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
-    }
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    return cell;
-}
 @end

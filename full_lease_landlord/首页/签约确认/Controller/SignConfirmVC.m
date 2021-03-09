@@ -166,7 +166,6 @@
     DDWeakSelf;
     ChangePriceView *view = [[ChangePriceView alloc] initWithMaxPrice:@"月租金不超过当前房源租金" completion:^(NSString * _Nonnull text) {
         [weakself changeMoney:text];
-//        weakself.priceLab.text = text;
     }];
     view.zujinTF.text = self.priceLab.text;
     [view show];

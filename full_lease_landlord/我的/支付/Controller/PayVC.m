@@ -209,7 +209,7 @@
 
 //数据源
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    PayCell *cell = [PayCell cellWithTableView:tableView];
+    PayCell *cell = [tableView cddDequeueReusableCell:PayCell.class];
     cell.model = self.dataSource[indexPath.row];
     return cell;
 }

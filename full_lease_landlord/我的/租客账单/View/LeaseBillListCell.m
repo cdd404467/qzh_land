@@ -7,6 +7,7 @@
 //
 
 #import "LeaseBillListCell.h"
+#import "NSString+Extension.h"
 
 @interface LeaseBillListCell()
 @property (nonatomic, strong)UILabel *zuyueNumLab;
@@ -136,7 +137,8 @@
     } else {
         _zuyueNumLab.text = [NSString stringWithFormat:@"%@-%@期",model.sourcetypestr,model.stage];
     }
-    _moneyLab.text = [NSString stringWithFormat:@"¥%@",model.amountPayable];
+    NSString *price = model.status == 0 ? model.amountPayable.correctPrecision : model.amount.correctPrecision;
+    _moneyLab.text = [NSString stringWithFormat:@"¥%@",price];
     _addressLab.text = [NSString stringWithFormat:@"地址: %@",model.adress];
     _orderCycleLab.text = [NSString stringWithFormat:@"账单周期: %@至%@",model.begintime,model.endtime];
     _payDateLab.text = [NSString stringWithFormat:@"支付日: %@",model.shoureceivetime];

@@ -8,8 +8,8 @@
 
 import Foundation
 
-class Help {
-    class func currentVC() -> UIViewController? {
+class Help: NSObject {
+   @objc class func currentVC() -> UIViewController? {
         var window = UIApplication.shared.keyWindow
         if window?.windowLevel != UIWindow.Level.normal{
           let windows = UIApplication.shared.windows

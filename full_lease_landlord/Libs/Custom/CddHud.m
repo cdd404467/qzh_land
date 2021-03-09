@@ -15,7 +15,7 @@
 /*** 只显示菊花 ***/
 + (MBProgressHUD *)show:(UIView *)view {
     if (view == nil)
-        view = [[UIApplication sharedApplication].windows lastObject];
+        view = [[UIApplication sharedApplication].windows firstObject];
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
     hud.userInteractionEnabled= NO;
     hud.bezelView.color = UIColor.blackColor;
@@ -33,7 +33,7 @@
 /*** 只显示文本 ***/
 + (MBProgressHUD *)showTextOnly:(NSString *)text view:(UIView *)view {
     if (view == nil)
-        view = [[UIApplication sharedApplication].windows lastObject];
+        view = [[UIApplication sharedApplication].windows firstObject];
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
     hud.userInteractionEnabled= NO;
     hud.mode = MBProgressHUDModeText;
@@ -53,7 +53,7 @@
 /*** 菊花和文本 ***/
 + (MBProgressHUD *)showWithText:(NSString *)text view:(UIView *)view {
     if (view == nil)
-        view = [[UIApplication sharedApplication].windows lastObject];
+        view = [[UIApplication sharedApplication].windows firstObject];
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
     hud.userInteractionEnabled= NO;
     hud.bezelView.color = UIColor.blackColor;
@@ -70,7 +70,7 @@
 /*** 自定义图片 ***/
 + (MBProgressHUD *)showWithImage:(NSString *)imageName text:(NSString *)text view:(UIView *)view {
     if (view == nil)
-        view = [[UIApplication sharedApplication].windows lastObject];
+        view = [[UIApplication sharedApplication].windows firstObject];
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
     hud.userInteractionEnabled= NO;
     hud.bezelView.color = UIColor.blackColor;
@@ -91,7 +91,7 @@
 /*** 关闭hud ***/
 + (void)hideHUD:(UIView * _Nullable)view {
     if (view == nil)
-        view = [[UIApplication sharedApplication].windows lastObject];
+        view = [[UIApplication sharedApplication].windows firstObject];
     
     [MBProgressHUD hideHUDForView:view animated:YES];
 }

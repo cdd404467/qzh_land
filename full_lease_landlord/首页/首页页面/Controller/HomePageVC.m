@@ -44,7 +44,7 @@
     [self.navBar.rightBtn setImage:[image imageWithChangeTintColor:HEXColor(@"#333333", 1)] forState:UIControlStateNormal];
     [self.navBar.rightBtn addTarget:self action:@selector(jumpToMessage) forControlEvents:UIControlEventTouchUpInside];
     [self setupUI];
-    [self requestBanner];
+    [self performSelector:@selector(requestBanner)];
     [SystemTool requestSystemSetting];
     if (!isDebug) {
         [self checkVersionUpdate];
@@ -80,9 +80,6 @@
         if ([json[@"code"] integerValue] == 200) {
             if ([json[@"data"][@"updateFlag"] integerValue] != 0) {
                 UpdateView *updateView = [[UpdateView alloc] init];
-//                updateView.version = @"1.1.0";
-//                updateView.updateType = 1;
-//                updateView.content = @"哈哈哈啊哈";
                 updateView.updateType = [json[@"data"][@"updateFlag"] integerValue];
                 updateView.version = json[@"data"][@"responseObj"][@"banben"];
                 NSString *handledStr = [json[@"data"][@"responseObj"][@"cont"] stringByReplacingOccurrencesOfString:@"\\n" withString:@"\n"];

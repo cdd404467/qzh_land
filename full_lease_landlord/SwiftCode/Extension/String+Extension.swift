@@ -9,6 +9,7 @@
 import Foundation
 
 public extension String {
+    @discardableResult
     func correctPrecision() -> String {
         let conversionValue: Double = Double(self) ?? 0
         let doubleString = String.init(format: "%lf", conversionValue)

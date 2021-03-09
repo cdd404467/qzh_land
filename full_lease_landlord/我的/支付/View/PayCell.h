@@ -13,7 +13,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface PayCell : UITableViewCell
 @property (nonatomic, strong)PayModel *model;
-+ (instancetype)cellWithTableView:(UITableView *)tableView;
 @property (nonatomic, assign)BOOL isLast;
 @end
 

@@ -7,6 +7,7 @@
 //
 
 #import "MyBillListCell.h"
+#import "NSString+Extension.h"
 
 @interface MyBillListCell()
 @property (nonatomic, strong)UILabel *expLab;
@@ -113,7 +114,9 @@
 - (void)setModel:(BillModel *)model {
     _model = model;
     _expLab.text = model.sourcetypestr;
-    _priceLab.text = [NSString stringWithFormat:@"¥%@",model.amountPayable];
+    
+    NSString *price = model.status == 0 ? model.amountPayable.correctPrecision : model.amount.correctPrecision;
+    _priceLab.text = [NSString stringWithFormat:@"¥%@",price];
     _timeLab.text = [NSString stringWithFormat:@"账单周期：%@至%@",model.begintime,model.endtime];
     _payTimeLab.text = [NSString stringWithFormat:@"支付日：%@",model.shoureceivetime];
     NSString *statusStr = model.status == 0 ? @"未支付" : @"已支付";

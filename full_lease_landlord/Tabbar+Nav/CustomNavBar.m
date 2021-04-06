@@ -29,6 +29,15 @@ static CGFloat navBar_Height = 44.f;
 }
 
 - (void)setUI {
+    UIView *stateBarView = [[UIView alloc] init];
+    stateBarView.backgroundColor = UIColor.clearColor;
+    [self addSubview:stateBarView];
+    [stateBarView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.top.mas_equalTo(0);
+        make.height.mas_equalTo(STATEBAR_HEIGHT);
+    }];
+    _stateBarView = stateBarView;
+    
     UIView *navBarView = [[UIView alloc] init];
     navBarView.backgroundColor = UIColor.clearColor;
     [self addSubview:navBarView];

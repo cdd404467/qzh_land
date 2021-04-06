@@ -28,7 +28,7 @@ typedef void(^LoadMoreBlock)(NSInteger pageIndex);
 @implementation UIScrollView (MJRefresh)
 
 - (void)addHeaderWithRefresh:(void(^)(NSInteger pageIndex))refreshBlock {
-
+    self.pageIndex = 1;
     __weak typeof(self) weakSelf = self;
     self.refreshBlock = refreshBlock;
     MJRefreshNormalHeader * header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
@@ -42,74 +42,43 @@ typedef void(^LoadMoreBlock)(NSInteger pageIndex);
 }
 
 - (void)addFooterWithRefresh:(void(^)(NSInteger pageIndex))loadMoreBlock {
-    [self addFooterWithRefresh:YES loadMoreBlock:loadMoreBlock];
-}
-
-- (void)addFooterWithRefresh:(BOOL)automaticallyRefresh loadMoreBlock:(void(^)(NSInteger pageIndex))loadMoreBlock {
+    self.pageIndex = 1;
+    __weak typeof(self) weakSelf = self;
     self.loadMoreBlock = loadMoreBlock;
-    if (automaticallyRefresh) {
-        MJRefreshAutoNormalFooter * footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
-            self.pageIndex += 1;
-            if (self.loadMoreBlock) {
-                self.loadMoreBlock(self.pageIndex);
-            }
-        }];
-        
-        footer.automaticallyRefresh = automaticallyRefresh;
-        
-//        footer.stateLabel.font = [UIFont systemFontOfSize:13.0];
-//        footer.stateLabel.textColor = [UIColor colorWithWhite:0.400 alpha:1.000];
-//        [footer setTitle:@"加载中…" forState:MJRefreshStateRefreshing];
-//        [footer setTitle:@"~~这是我的底线啦~~" forState:MJRefreshStateNoMoreData];
-        
-        self.mj_footer = footer;
-    }
-    else{
-        MJRefreshBackNormalFooter * footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
-            self.pageIndex += 1;
-            if (self.loadMoreBlock) {
-                self.loadMoreBlock(self.pageIndex);
-            }
-        }];
-        
-//        footer.stateLabel.font = [UIFont systemFontOfSize:13.0];
-//        footer.stateLabel.textColor = [UIColor colorWithWhite:0.400 alpha:1.000];
-//        [footer setTitle:@"加载中…" forState:MJRefreshStateRefreshing];
-//        [footer setTitle:@"~~这是我的底线啦~~" forState:MJRefreshStateNoMoreData];
-        
-        self.mj_footer = footer;
-    }
-}
-
-
--(void)beginHeaderRefresh {
+    MJRefreshAutoNormalFooter * footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        weakSelf.pageIndex += 1;
+        if (weakSelf.loadMoreBlock) {
+            weakSelf.loadMoreBlock(weakSelf.pageIndex);
+        }
+    }];
     
-    [self.mj_header beginRefreshing];
+    footer.automaticallyRefresh = YES;
+    self.mj_footer = footer;
 }
 
 - (void)resetNoMoreData {
-    
     [self.mj_footer resetNoMoreData];
 }
 
--(void)endHeaderRefresh {
-    
-    [self.mj_header endRefreshing];
-    [self resetNoMoreData];
-}
-
--(void)endFooterRefresh {
-    [self.mj_footer endRefreshing];
-}
-
-- (void)endFooterNoMoreData
-{
-    dispatch_async(dispatch_get_main_queue(), ^{
+- (void)endRefreshWithDataCount:(NSInteger)count {
+    if (count == 0 && self.pageIndex == 1) {
+        self.mj_footer.hidden = YES;
+    } else {
+        self.mj_footer.hidden = NO;
+    }
+    if (count < self.pageCount || count < 5) {
+        [self.mj_header endRefreshing];
         [self.mj_footer endRefreshingWithNoMoreData];
-    });
+    } else {
+        if (self.mj_header.isRefreshing) {
+            [self.mj_header endRefreshing];
+            [self.mj_footer resetNoMoreData];
+        }
+        if (self.mj_footer.isRefreshing) {
+            [self.mj_footer endRefreshing];
+        }
+    }
 }
-
-
 
 
 
@@ -123,6 +92,17 @@ static void *pagaIndexKey = &pagaIndexKey;
 {
     return [objc_getAssociatedObject(self, &pagaIndexKey) integerValue];
 }
+
+static void *pagaCountKey = &pagaCountKey;
+- (void)setPageCount:(NSInteger)pageCount {
+    objc_setAssociatedObject(self, &pagaCountKey, @(pageCount), OBJC_ASSOCIATION_ASSIGN);
+}
+
+- (NSInteger)pageCount
+{
+    return [objc_getAssociatedObject(self, &pagaCountKey) integerValue];
+}
+
 
 static void *RefreshBlockKey = &RefreshBlockKey;
 - (void)setRefreshBlock:(void (^)(void))RefreshBlock{

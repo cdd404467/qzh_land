@@ -67,7 +67,7 @@ class DecorateContactOnlineVC: BaseViewController {
         
         
         codeBtn = UIButton.init(type: .custom)
-        codeBtn.backgroundColor = MainColor
+        codeBtn.backgroundColor = HexColor("#27C3CE", 1)
         codeBtn.setTitle("发送验证码", for: .normal)
         codeBtn.setTitleColor(.white, for: .normal)
         codeBtn.titleLabel?.font = UIFont.systemFont(ofSize: 12)
@@ -97,7 +97,7 @@ class DecorateContactOnlineVC: BaseViewController {
         
         let submitBtn = UIButton.init(type: .custom)
         submitBtn.addTarget(self, action: #selector(checSMSkCodeAndSubmit), for: .touchUpInside)
-        submitBtn.backgroundColor = MainColor;
+        submitBtn.backgroundColor = HexColor("#27C3CE", 1)
         submitBtn.setTitle("提交", for: .normal)
         submitBtn.setTitleColor(.white, for: .normal)
         submitBtn.titleLabel?.font = KFont(18)

@@ -60,16 +60,17 @@
         _tableView.separatorInset = UIEdgeInsetsMake(0, KFit_W(15), 0, KFit_W(15));
         _tableView.separatorColor = HEXColor(@"#dddddd", 1);
         _tableView.tableFooterView = [UIView new];
-        _tableView.contentInset = UIEdgeInsetsMake(0, 0, TABBAR_HEIGHT + 30, 0);
+        _tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
 //        _tableView.scrollIndicatorInsets = _tableView.contentInset;
         DDWeakSelf;
-        _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-            weakself.pageNumber = 1;
-            [self requestList];
+        [_tableView addHeaderWithRefresh:^(NSInteger pageIndex) {
+            weakself.pageNumber = pageIndex;
+            [weakself requestList];
         }];
-        _tableView.mj_footer=[MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
-            weakself.pageNumber++;
-            [self requestList];
+        
+        [_tableView addFooterWithRefresh:^(NSInteger pageIndex) {
+            weakself.pageNumber = pageIndex;
+            [weakself requestList];
         }];
     }
     return _tableView;
@@ -129,8 +130,7 @@
                 [self.dataSource removeAllObjects];
             }
             [self.dataSource addObjectsFromArray:self.model.pgingData.data];
-            [self.tableView.mj_header endRefreshing];
-            [self.tableView.mj_footer endRefreshing];
+            [self.tableView endRefreshWithDataCount:self.model.pgingData.data.count];
             [self.tableView reloadData];
         }
     } Failure:^(NSError * _Nonnull error) {

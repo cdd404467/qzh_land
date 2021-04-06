@@ -52,8 +52,10 @@
 #pragma mark - 我的租约
 //我的租约（合同）
 #define URLPost_Con_List @"landlord/landlordcont/getTonercontractList"
-//租约详情
-#define URLGet_Con_Detail @"landlord/landlordcont/getTonercontract/%@"
+//租约详情(轻托管)
+#define URLGet_Con_Detail_Dep @"landlord/landlordcont/getTonercontract/%@"
+//租约详情(包租)
+#define URLGet_Con_Detail @"landlord/landlordcont/getTonercontractCharter/%@"
 //下载合同
 #define URLPost_Con_Download @"contract/contract/GetJzqDownContract"
 
@@ -178,6 +180,5 @@
 #define URLGet_landlady_Login @"member/smartDevices/landladyLogin"
 //系统配置
 #define URLPost_System_Setting @"contract/bill/convertRequestToNet/configurationnet"
-
 
 #endif /* NetWorkPort_h */

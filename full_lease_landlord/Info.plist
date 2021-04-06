@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>全住会业主</string>
+	<string>亿租汇业主</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -27,17 +27,17 @@
 			<string>weixin</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>wx2a1f65135ba300ff</string>
+				<string>wx91b2968de624ca9a</string>
 			</array>
 		</dict>
 		<dict>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>com.girders.qzhLandlord</string>
+			<string>com.yzh.yezhu</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>qzhLandlord</string>
+				<string>yzhyezhu</string>
 			</array>
 		</dict>
 	</array>

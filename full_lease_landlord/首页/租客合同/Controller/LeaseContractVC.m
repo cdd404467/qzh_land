@@ -34,18 +34,19 @@
         _tableView.emptyDataSetDelegate = self;
         _tableView.backgroundColor = TableColor;
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-        _tableView.contentInset = UIEdgeInsetsMake(10, 0, TABBAR_HEIGHT + 30, 0);
+        _tableView.contentInset = UIEdgeInsetsMake(10, 0, 0, 0);
 //        _tableView.scrollIndicatorInsets = _tableView.contentInset;
         DDWeakSelf;
-        _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-            weakself.pageNumber = 1;
-            [self requestList];
+        [_tableView addHeaderWithRefresh:^(NSInteger pageIndex) {
+            weakself.pageNumber = pageIndex;
+            [weakself requestList];
+        }];
+        
+        [_tableView addFooterWithRefresh:^(NSInteger pageIndex) {
+            weakself.pageNumber = pageIndex;
+            [weakself requestList];
         }];
         _tableView.mj_header.ignoredScrollViewContentInsetTop = 10;
-        _tableView.mj_footer=[MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
-            weakself.pageNumber++;
-            [self requestList];
-        }];
     }
     return _tableView;
 }
@@ -81,8 +82,7 @@
                 [self.dataSource removeAllObjects];
             }
             [self.dataSource addObjectsFromArray:tempArr];
-            [self.tableView.mj_header endRefreshing];
-            [self.tableView.mj_footer endRefreshing];
+            [self.tableView endRefreshWithDataCount:tempArr.count];
             [self.tableView reloadData];
         }
     } Failure:^(NSError * _Nonnull error) {

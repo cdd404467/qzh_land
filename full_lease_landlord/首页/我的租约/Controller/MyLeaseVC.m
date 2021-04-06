@@ -9,11 +9,11 @@
 #import "MyLeaseVC.h"
 #import "MyLeaseListCell.h"
 #import "MyLeaseDetailVC.h"
+#import "MyLeaseDetail2VC.h"
 #import "ContractModel.h"
 #import "ContactManagerVC.h"
 #import <AFNetworking.h>
 #import "UITableView+Extension.h"
-#import "UIScrollView+MJRefresh.h"
 
 @interface MyLeaseVC ()<UITableViewDelegate, UITableViewDataSource,DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
 @property (nonatomic, strong)UITableView *tableView;
@@ -38,29 +38,19 @@
         _tableView.emptyDataSetDelegate = self;
         _tableView.backgroundColor = TableColor;
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-        _tableView.contentInset = UIEdgeInsetsMake(10, 0, TABBAR_HEIGHT + 30, 0);
+        _tableView.contentInset = UIEdgeInsetsMake(10, 0, 0, 0);
         DDWeakSelf;
-//        _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-//            weakself.pageNumber = 1;
-//            [self requestList];
-//        }];
-        
         [_tableView addHeaderWithRefresh:^(NSInteger pageIndex) {
             weakself.pageNumber = pageIndex;
             [weakself requestList];
         }];
-        
-        _tableView.mj_header.ignoredScrollViewContentInsetTop = 10;
-        
+
         [_tableView addFooterWithRefresh:^(NSInteger pageIndex) {
             weakself.pageNumber = pageIndex;
             [weakself requestList];
         }];
-        
-//        _tableView.mj_footer=[MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
-//            weakself.pageNumber++;
-//            [self requestList];
-//        }];
+
+        _tableView.mj_header.ignoredScrollViewContentInsetTop = 10;
     }
     return _tableView;
 }
@@ -83,8 +73,7 @@
                 [self.dataSource removeAllObjects];
             }
             [self.dataSource addObjectsFromArray:tempArr];
-            [self.tableView.mj_header endRefreshing];
-            [self.tableView.mj_footer endRefreshing];
+            [self.tableView endRefreshWithDataCount:tempArr.count];
             [self.tableView reloadData];
         }
     } Failure:^(NSError * _Nonnull error) {
@@ -118,9 +107,16 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (_type == 0) {
-        MyLeaseDetailVC *vc = [[MyLeaseDetailVC alloc] init];
-        vc.conID = [self.dataSource[indexPath.row] conID];
-        [self.navigationController pushViewController:vc animated:YES];
+        ContractModel *model = self.dataSource[indexPath.row];
+        if (model.type == 1) {
+            MyLeaseDetailVC *vc = [[MyLeaseDetailVC alloc] init];
+            vc.conID = [self.dataSource[indexPath.row] conID];
+            [self.navigationController pushViewController:vc animated:YES];
+        } else if (model.type == 2){
+            MyLeaseDetail2VC *vc = [[MyLeaseDetail2VC alloc] init];
+            vc.conID = [self.dataSource[indexPath.row] conID];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
     } else if (_type == 1) {
         ContactManagerVC *vc = [[ContactManagerVC alloc] init];
         vc.conID = [self.dataSource[indexPath.row] conID];

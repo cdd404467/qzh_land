@@ -166,7 +166,7 @@
     [JPUSHService registerForRemoteNotificationConfig:entity delegate:self];
     [JPUSHService setLogOFF];
     //初始化 JPush 代码
-    [JPUSHService setupWithOption:launchOptions appKey:@"87ee6a45759c50410a9cc454" channel:@"App Store" apsForProduction:YES];
+    [JPUSHService setupWithOption:launchOptions appKey:@"f8bed038559e757dc02ae7ff" channel:@"App Store" apsForProduction:YES];
     
     [JPUSHService registrationIDCompletionHandler:^(int resCode, NSString *registrationID) {
         if(resCode ==0) {
@@ -223,10 +223,10 @@
     [IQKeyboardManager sharedManager].enableAutoToolbar = NO;
     [IQKeyboardManager sharedManager].keyboardDistanceFromTextField = 10.0f;    // 输入框距离键盘的距离
 #if !TARGET_IPHONE_SIMULATOR
-    [[AipOcrService shardService] authWithAK:@"Qk8vCsW72ThVfOSX0qYBsQeQ" andSK:@"DZNlmW8XGBWnGw138RWL9EgFXkGHpqXq"];
+    [[AipOcrService shardService] authWithAK:@"MpYANWd9hcWrlrzGdt85ZWbs" andSK:@"vmRf9VUIpW3xVXKUAW842WBYopboEri6"];
 #endif
     /*** 注册微信 - 官方SDK ***/
-    [WXApi registerApp:wxAppID universalLink:@"https://qzhimg.comprorent.com/"];
+    [WXApi registerApp:wxAppID universalLink:@"https://yzhjava.yizuhui.vip/"];
     [TTLock setupBluetooth:^(TTBluetoothState state) {
         NSLog(@"##############  TTLock is working, bluetooth state: %ld  ##############",(long)state);
     }];

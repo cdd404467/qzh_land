@@ -28,10 +28,7 @@
     self.titleLab.textColor = HEXColor(@"#333333", 1);
     self.titleLab.font = kFont(14);
     [self.contentView addSubview:self.titleLab];
-    [self.titleLab mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.contentView).offset(KFit_W(16));
-        make.top.equalTo(self.contentView).offset(KFit_W(22));
-    }];
+    
     
     self.subTitleLab = [[UILabel alloc] init];
     self.subTitleLab.text = @"管理员";
@@ -59,18 +56,25 @@
     self.electricityLab.font = kFont(14);
     [self.contentView addSubview:self.electricityLab];
     [self.electricityLab mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(self.contentView.mas_right).offset(-KFit_W(16));
+        make.right.equalTo(self.contentView.mas_right).offset(-KFit_W(12));
         make.centerY.equalTo(self.titleLab);
     }];
+    [self.electricityLab setContentHuggingPriority:UILayoutPriorityDefaultHigh forAxis:UILayoutConstraintAxisHorizontal];
     
     self.imgView = [[UIImageView alloc] init];
     self.imgView.image = [UIImage imageNamed:@"electricity"];
     self.imgView.contentMode = UIViewContentModeScaleAspectFit;
     [self.contentView addSubview:self.imgView];
     [self.imgView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.mas_equalTo(self.electricityLab.mas_left).offset(-KFit_W(10));
+        make.right.mas_equalTo(self.electricityLab.mas_left).offset(-KFit_W(4));
         make.size.mas_equalTo(CGSizeMake(KFit_W(20), KFit_W(20)));
         make.centerY.equalTo(self.titleLab);
+    }];
+    
+    [self.titleLab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.contentView).offset(KFit_W(16));
+        make.top.equalTo(self.contentView).offset(KFit_W(22));
+        make.right.mas_equalTo(self.imgView.mas_left).offset(-7);
     }];
 }
 

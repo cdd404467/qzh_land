@@ -90,7 +90,7 @@
         _tableView.backgroundColor = MainColor;
         _tableView.clipsToBounds = YES;
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-        _tableView.contentInset = UIEdgeInsetsMake(0, 0, TABBAR_HEIGHT + 30, 0);
+        _tableView.contentInset = UIEdgeInsetsMake(0, 0, Bottom_Height_Dif + 20, 0);
         UIView *footer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, _tableView.width, 30)];
         [HelperTool drawRound:footer corner:UIRectCornerBottomLeft | UIRectCornerBottomRight radiu:5.f];
         footer.backgroundColor = UIColor.whiteColor;

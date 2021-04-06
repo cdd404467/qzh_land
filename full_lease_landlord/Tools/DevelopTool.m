@@ -26,15 +26,15 @@
 #define Landlord @"https://landlord.girders.cn/"
 #else
 //会员系统
-#define Member @"https://member.comprorent.com/"
+#define Member @"https://yzhjava.yizuhui.vip/member/"
 //房源系统
-#define Room @"https://house.comprorent.com/"
+#define Room @"https://yzhjava.yizuhui.vip/house/"
 //工单系统
-#define Order @"https://order.comprorent.com/"
+#define Order @"https://yzhjava.yizuhui.vip/order/"
 //合同系统
-#define Contract @"https://contract.comprorent.com/"
+#define Contract @"https://yzhjava.yizuhui.vip/contract/"
 //房东系统
-#define Landlord @"https://landlord.comprorent.com/"
+#define Landlord @"https://yzhjava.yizuhui.vip/landlord/"
 
 #endif
 

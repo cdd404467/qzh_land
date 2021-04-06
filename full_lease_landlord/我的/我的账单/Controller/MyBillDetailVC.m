@@ -88,13 +88,12 @@
         _tableView.backgroundColor = MainColor;
         _tableView.clipsToBounds = YES;
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-        _tableView.contentInset = UIEdgeInsetsMake(0, 0, TABBAR_HEIGHT + 30, 0);
+        _tableView.contentInset = UIEdgeInsetsMake(0, 0, Bottom_Height_Dif + 20, 0);
         UIView *footer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, _tableView.width, 30)];
         footer.backgroundColor = UIColor.whiteColor;
         [HelperTool drawRound:footer corner:UIRectCornerBottomLeft | UIRectCornerBottomRight radiu:5.f];
         _tableView.tableHeaderView = self.tableHeader;
         _tableView.tableFooterView = footer;
-//        _tableView.scrollIndicatorInsets = _tableView.contentInset;
     }
     return _tableView;
 }

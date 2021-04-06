@@ -8,35 +8,34 @@
 
 #import "HouseEntrustVC.h"
 #import "EntrustOnlineVC.h"
+#import <WebKit/WebKit.h>
 
 @interface HouseEntrustVC ()
-@property (nonatomic, strong)UIScrollView *scrollView;
+
 @end
 
 @implementation HouseEntrustVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navTitle = @"房屋委托";
+    self.navTitle = @"轻资产服务";
     [self setupUI];
 }
 
-- (UIScrollView *)scrollView {
-    if (!_scrollView) {
-        _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, NAV_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT - NAV_HEIGHT - TABBAR_HEIGHT - 30)];
-        _scrollView.bounces = NO;
-        _scrollView.contentSize = CGSizeMake(SCREEN_WIDTH, KFit_W(1267));
-    }
-    return _scrollView;
-}
-
-
 - (void)setupUI {
-    [self.view addSubview:self.scrollView];
+    WKWebView *webView = [[WKWebView alloc] init];
+    webView.scrollView.bounces = NO;
+    webView.backgroundColor = UIColor.whiteColor;
+    NSURL *url = [NSURL URLWithString:LightServicesH5];
+    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url];
+    [webView loadRequest:request];
+    [self.view addSubview:webView];
+    [webView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.mas_equalTo(0);
+        make.top.mas_equalTo(NAV_HEIGHT);
+        make.bottom.mas_equalTo(-(TABBAR_HEIGHT + 30));
+    }];
     
-    UIImageView *bgImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, _scrollView.contentSize.height)];
-    bgImageView.image = [UIImage imageNamed:@"house_entrust_bg"];
-    [self.scrollView addSubview:bgImageView];
     
     UIButton *phoneAskBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     phoneAskBtn.layer.cornerRadius = 4.f;

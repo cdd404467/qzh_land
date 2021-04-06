@@ -113,17 +113,17 @@
 //        NSMutableArray *array = [NSMutableArray array];
 //        for (UIView *btn in self.tabBar.subviews) {
 //            if ([btn isKindOfClass:NSClassFromString(@"UITabBarButton")]) {
-//                UIImageView *btnImageView = [btn valueForKey:@"info"];
-//                [array addObject:btnImageView];
+////                UIImageView *btnImageView = [btn valueForKey:@"info"];
+//                [array addObject:btn];
 //            }
 //        }
-//        
+//
 //        [self tabAnimation:array index:index];
 //        self.indexFlag = index;
 //    }
 //}
-//
-////tabbar动画
+
+//tabbar动画
 //- (void)tabAnimation:(NSMutableArray *)array index:(NSInteger)index {
 //    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
 //    //速度控制函数，控制动画运行的节奏

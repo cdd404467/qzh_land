@@ -72,7 +72,7 @@
 - (void)checkVersionUpdate {
     NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
     NSString *current_Version = [infoDictionary objectForKey:@"CFBundleShortVersionString"];
-    NSDictionary *dict = @{@"companyId":@1,
+    NSDictionary *dict = @{@"companyId":@647,
                            @"currentBanben":current_Version?:@"",
                            @"type":@7
     };
@@ -164,7 +164,7 @@
         [self.navigationController pushViewController:vc animated:YES];
     } else if (index == 6) {
         if ([WXApi isWXAppInstalled]) {
-            [[WXApiManager sharedManager] launchMiniProgramWithUserName:@"gh_e65f08c28952" path:@"/pages/index/index" type:WXMiniProgramTypeRelease];
+            [[WXApiManager sharedManager] launchMiniProgramWithUserName:@"gh_3b45348ad55f" path:@"/pages/index/index" type:WXMiniProgramTypeRelease];
             [WXApiManager sharedManager].delegate = self;
         } else {
             [CddHud showTextOnly:@"未安装微信app" view:self.view];

@@ -46,10 +46,6 @@
         vc.conID = _conID;
         [self.navigationController pushViewController:vc animated:YES];
     } else if (index == 1) {
-        EmptyCompensationVC *vc = [[EmptyCompensationVC alloc] init];
-        vc.conID = _conID;
-        [self.navigationController pushViewController:vc animated:YES];
-    } else if (index == 2) {
         MyBillVC *vc = [[MyBillVC alloc] init];
         vc.conID = _conID;
         [self.navigationController pushViewController:vc animated:YES];
@@ -61,9 +57,9 @@
 }
 
 - (void)requestData {
-    NSString *urlString = [NSString stringWithFormat:URLGet_Con_Detail,_conID];
+    NSString *urlString = [NSString stringWithFormat:URLGet_Con_Detail_Dep,_conID];
     [NetTool getRequest:urlString Params:nil Success:^(id  _Nonnull json) {
-        NSLog(@"----- %@",json);
+//        NSLog(@"----- %@",json);
         if ([json[@"code"] integerValue] == 200) {
             ContractModel *model = [ContractModel mj_objectWithKeyValues:json[@"data"]];
             model.grading = [GradingModel mj_objectArrayWithKeyValuesArray:model.grading];
@@ -252,7 +248,7 @@
     
     [contactBtn.superview layoutIfNeeded];
     bottomBgView.height = contactBtn.bottom + 30;
-    _scrollView.contentSize = CGSizeMake(SCREEN_WIDTH, bottomBgView.bottom + TABBAR_HEIGHT);
+    _scrollView.contentSize = CGSizeMake(SCREEN_WIDTH, bottomBgView.bottom);
 }
 
 - (void)jumpToContactManager {
@@ -309,11 +305,11 @@
 }
 
 - (void)setupUI {
-    NSArray *titleArr = @[@"业主信息",@"空置赔偿金",@"账单信息",@"下载电子合同"];
-    NSArray *iconArr = @[@"zuyue_icon_download_con",@"zuyue_icon_empty",@"zuyue_icon_info",@"zuyue_icon_order"];
+    NSArray *titleArr = @[@"业主信息",@"账单信息",@"下载电子合同"];
+    NSArray *iconArr = @[@"zuyue_icon_download_con",@"zuyue_icon_info",@"zuyue_icon_order"];
     
     CGFloat width = KFit_W(48);
-    CGFloat leftGap = KFit_W(25);
+    CGFloat leftGap = KFit_W(45);
     CGFloat centerGap = (SCREEN_WIDTH - leftGap * 2 - width * titleArr.count) / (titleArr.count - 1);
     
     for (NSInteger i = 0;i < titleArr.count; i++) {

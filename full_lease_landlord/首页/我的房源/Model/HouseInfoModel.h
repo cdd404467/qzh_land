@@ -63,6 +63,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy)NSString *keeperRealName;
 //合同id
 @property (nonatomic, copy)NSString *townContractId;
+//1是托管，2是包租
+@property (nonatomic, assign)NSInteger type;
 @end
 
 

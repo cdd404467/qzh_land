@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 /*这是一个宏文件*/
 
 var SCREEN_BOUNDS = PublicPara.screen_bounds()

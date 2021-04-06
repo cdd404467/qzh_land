@@ -77,7 +77,7 @@
     _phoneTF = phoneTF;
     
     UIButton *codeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    codeBtn.backgroundColor = MainColor;
+    codeBtn.backgroundColor = HEXColor(@"#4478CF", 1);
     [codeBtn setTitle:@"发送验证码" forState:UIControlStateNormal];
     [codeBtn setTitleColor:UIColor.whiteColor forState:UIControlStateNormal];
     codeBtn.titleLabel.font = [UIFont systemFontOfSize:12];
@@ -109,7 +109,7 @@
     
     UIButton *submitBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [submitBtn addTarget:self action:@selector(checSMSkCodeAndSubmit) forControlEvents:UIControlEventTouchUpInside];
-    submitBtn.backgroundColor = MainColor;
+    submitBtn.backgroundColor = HEXColor(@"#4478CF", 1);
     [submitBtn setTitle:@"提交" forState:UIControlStateNormal];
     [submitBtn setTitleColor:UIColor.whiteColor forState:UIControlStateNormal];
     submitBtn.titleLabel.font = kFont(18);

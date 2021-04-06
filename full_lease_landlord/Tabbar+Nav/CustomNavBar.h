@@ -11,6 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface CustomNavBar : UIImageView
+@property (nonatomic, strong) UIView *stateBarView;
 @property (nonatomic, strong) UIView *navBarView;
 @property (nonatomic, strong) UIButton *leftBtn;
 @property (nonatomic, strong) UILabel *titleLabel;

@@ -13,17 +13,21 @@
 #import "full_lease_landlord-Swift.h"
 
 @implementation NetTool
-+ (void)dealErrorWithJson:(id)json {
++ (void)dealWithError:(NSURLSessionDataTask *)task error:(NSError *)error{
+    NSHTTPURLResponse * responses = (NSHTTPURLResponse *)task.response;
     //token 过期
-    if ([json[@"code"] integerValue] == 401) {
+    if (responses.statusCode == 401) {
         [UserDefault removeObjectForKey:@"userInfo"];
         [[NSNotificationCenter defaultCenter]postNotificationName:NotificationName_UserExitLogin object:nil userInfo:nil];
         BaseViewController *baseVC = (BaseViewController *)[HelperTool getCurrentVC];
         if (![baseVC isKindOfClass:[LoginVC class]]) {
             [baseVC jumpToLoginWithComplete:nil];
         }
+    } else {
+        [self showErrorMsg:error.localizedDescription];
     }
 }
+
 
 + (void)showErrorMsg:(NSString *)msg {
     [CddHud hideHUD:nil];
@@ -58,14 +62,13 @@
         if (success) {
             success(responseObject);
             if ([responseObject[@"code"] integerValue] != 200) {
-                [self dealErrorWithJson:responseObject];
                 [self showErrorMsg:responseObject[@"message"]];
             }
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         if (failure) {
             failure(error);
-            [self showErrorMsg:error.localizedDescription];
+            [self dealWithError:task error:error];
         }
         
     }];
@@ -86,7 +89,6 @@
             if ([responseObject[@"code"] integerValue] != 200) {
                 dispatch_async(dispatch_get_global_queue(0, 0), ^{
                     dispatch_async(dispatch_get_main_queue(), ^{
-                        [self dealErrorWithJson:responseObject];
                         [self showErrorMsg:responseObject[@"message"]];
                     });
                 });
@@ -97,7 +99,7 @@
             failure(error);
             dispatch_async(dispatch_get_global_queue(0, 0), ^{
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    [self showErrorMsg:error.localizedDescription];
+                    [self dealWithError:task error:error];
                 });
             });
         }
@@ -129,14 +131,13 @@
         if (success) {
             success(responseObject);
             if ([responseObject[@"code"] integerValue] != 200) {
-                [self dealErrorWithJson:responseObject];
                 [self showErrorMsg:responseObject[@"message"]];
             }
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         if (failure) {
             failure(error);
-            [self showErrorMsg:error.localizedDescription];
+//            [self dealWithError:task error:error];
         }
     }];
 }
@@ -159,7 +160,6 @@
             if ([responseObject[@"code"] integerValue] != 200) {
                 dispatch_async(dispatch_get_global_queue(0, 0), ^{
                     dispatch_async(dispatch_get_main_queue(), ^{
-                        [self dealErrorWithJson:responseObject];
                         [self showErrorMsg:responseObject[@"message"]];
                     });
                 });
@@ -170,7 +170,7 @@
             failure(error);
             dispatch_async(dispatch_get_global_queue(0, 0), ^{
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    [self showErrorMsg:error.localizedDescription];
+                    [self dealWithError:task error:error];
                 });
             });
         }
@@ -199,14 +199,13 @@
             success(responseObject);
             if ([responseObject[@"code"] integerValue] != 200) {
                 [self showErrorMsg:responseObject[@"message"]];
-                [self dealErrorWithJson:responseObject];
             }
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"Error-------- : %@",error);
         if (failure) {
             failure(error);
-            [self showErrorMsg:error.localizedDescription];
+
         }
     }];
 }

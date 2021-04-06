@@ -27,7 +27,7 @@ static NSString *iconCVID = @"HomeSelectCell";
         self.backgroundColor = [UIColor whiteColor];
        
         _icons = @[@"home_icon_1",@"home_icon_2",@"home_icon_3",@"home_icon_4",@"home_icon_6",@"home_icon_decorate",@"home_icon_shop"];
-        _titles = @[@"我的租约",@"我的房源",@"签约确认",@"租客合同",@"房屋托管",@"装修",@"商城"];
+        _titles = @[@"我的租约",@"我的房源",@"签约确认",@"租客合同",@"轻资产服务",@"装修",@"商城"];
         //,@"推荐房东"  ,@"home_icon_5"
         [self setupSubviews:frame];
     }

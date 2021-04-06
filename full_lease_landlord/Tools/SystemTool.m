@@ -16,6 +16,7 @@
             [kUserDefaults setObject:RightDataSafe(json[@"data"][@"lockAppLink"]) forKey:KlockAppLink];
             [kUserDefaults setObject:RightDataSafe(json[@"data"][@"contactPhone"]) forKey:@"contactPhone"];
             [kUserDefaults setObject:RightDataSafe(json[@"data"][@"wxQrCode"]) forKey:@"wxQrCode"];
+            [kUserDefaults setObject:RightDataSafe(json[@"data"][@"assetLightServicesH5"]) forKey:@"assetLightServicesH5"];
         }
     } Failure:^(NSError * _Nonnull error) {
         

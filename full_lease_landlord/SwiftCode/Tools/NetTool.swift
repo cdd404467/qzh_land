@@ -14,6 +14,88 @@ public typealias FailedHandler = (_ error: Error) -> Void
 public typealias ProgressHandler = (Progress) -> Void
 let NetReq = NetTool.shared
 let NetChain = NetChained.shared
+
+public class NetWorkRequest {
+    var request: Alamofire.Request?
+    private var successHandler: SuccessHandler?
+    private var failedHandler: FailedHandler?
+    private var progressHandler: ProgressHandler?
+    
+    func handleResponse(response: AFDataResponse<Any>) {
+        switch response.result {
+        case .success(let jsonData):
+            let json: JSON = JSON.init(jsonData)
+            if let closure = successHandler {
+                if json["code"].intValue != 200 {
+                    print(json)
+                    showErrorMsg(msg: json["message"].stringValue)
+                }
+                closure(json)
+            }
+        case .failure(let error):
+            if let closure = failedHandler {
+                print(error)
+                closure(error)
+                self.dealWithError(task: response, error: error)
+            }
+        }
+        clearReference()
+    }
+    
+    func handleProgress(progress: Foundation.Progress) {
+        if let closure = progressHandler {
+            closure(progress)
+        }
+    }
+    
+    @discardableResult
+    func success(_ closure: @escaping SuccessHandler) -> Self {
+        successHandler = closure
+        return self
+    }
+    
+    @discardableResult
+    func failed(_ closure: @escaping FailedHandler) -> Self {
+        failedHandler = closure
+        return self
+    }
+    
+    @discardableResult
+    func progress(closure: @escaping ProgressHandler) -> Self {
+        progressHandler = closure
+        return self
+    }
+    
+    func cancel() {
+        request?.cancel()
+    }
+    
+    func clearReference() {
+        successHandler = nil
+        failedHandler = nil
+        progressHandler = nil
+    }
+    
+    func showErrorMsg(msg: String) {
+        CddHud.hide(nil)
+        CddHud.hide(Help.currentVC()?.view)
+        CddHud.showTextOnly(msg, view: nil)
+    }
+    
+    func dealWithError(task: AFDataResponse<Any>, error: Error) {
+        if task.response?.statusCode == 401 {
+            UserDefaults.standard.removeObject(forKey: "userInfo")
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "NotificationName_UserExitLogin"), object: nil)
+            let baseVC: BaseViewController = Help.currentVC() as! BaseViewController
+            if !baseVC.isKind(of: BaseViewController.self) {
+                baseVC.jumpToLogin(complete: nil)
+            }
+        } else {
+            self.showErrorMsg(msg: error.localizedDescription)
+        }
+    }
+}
+
 public class NetTool {
     public static let shared = NetTool()
     var sessionManager: Alamofire.Session!
@@ -66,74 +148,6 @@ extension NetTool {
             task.handleResponse(response: response)
         })
         return task
-    }
-}
-
-public class NetWorkRequest {
-    var request: Alamofire.Request?
-    private var successHandler: SuccessHandler?
-    private var failedHandler: FailedHandler?
-    private var progressHandler: ProgressHandler?
-    
-    func handleResponse(response: AFDataResponse<Any>) {
-        switch response.result {
-        case .success(let jsonData):
-            let json: JSON = JSON.init(jsonData)
-            if let closure = successHandler {
-                if json["code"].intValue != 200 {
-                    print(json)
-                    showErrorMsg(msg: json["message"].stringValue)
-                }
-                closure(json)
-            }
-        case .failure(let error):
-            if let closure = failedHandler {
-                print(error)
-                showErrorMsg(msg: error.localizedDescription)
-                closure(error)
-            }
-        }
-        clearReference()
-    }
-    
-    func handleProgress(progress: Foundation.Progress) {
-        if let closure = progressHandler {
-            closure(progress)
-        }
-    }
-    
-    @discardableResult
-    func success(_ closure: @escaping SuccessHandler) -> Self {
-        successHandler = closure
-        return self
-    }
-    
-    @discardableResult
-    func failed(_ closure: @escaping FailedHandler) -> Self {
-        failedHandler = closure
-        return self
-    }
-    
-    @discardableResult
-    func progress(closure: @escaping ProgressHandler) -> Self {
-        progressHandler = closure
-        return self
-    }
-    
-    func cancel() {
-        request?.cancel()
-    }
-    
-    func clearReference() {
-        successHandler = nil
-        failedHandler = nil
-        progressHandler = nil
-    }
-    
-    func showErrorMsg(msg: String) {
-        CddHud.hide(nil)
-        CddHud.hide(Help.currentVC()?.view)
-        CddHud.showTextOnly(msg, view: nil)
     }
 }
 

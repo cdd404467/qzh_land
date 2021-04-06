@@ -6,21 +6,34 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-
 @interface AipOcrService : NSObject
+
+/**
+ * 获取单例
+ */
++ (instancetype)shardService;
+
+/**
+ * 清空验证缓存
+ * 出现验证过期等特殊情况调用
+ */
+- (void)clearCache;
+
+
++ (NSError *)aipErrorWithCode:(NSInteger)code andMessage:(NSString *)message;
 
 
 /**
  * 使用授权文件授权(推荐)
  * @param licenseFileContent 授权文件内容
  */
-- (void) authWithLicenseFileData: (NSData *)licenseFileContent;
+- (void)authWithLicenseFileData:(NSData *)licenseFileContent;
 
 
 /**
  * 使用Api Key, Secret Key授权
  */
-- (void) authWithAK: (NSString *)ak andSK: (NSString *)sk;
+- (void)authWithAK:(NSString *)ak andSK: (NSString *)sk;
 
 /**
  * 获取身份证检测Token
@@ -28,14 +41,14 @@
  * @param failHandler 失败回调
  */
 
-- (void )getTokenSuccessHandler:(void (^)(NSString *token))successHandler
-                    failHandler:(void (^)(NSError *error))failHandler;
+- (void)getTokenSuccessHandler:(void(^)(NSString *token))successHandler
+                   failHandler:(void(^)(NSError *error))failHandler;
 
 
-- (void) formRecognitionFromImage: (UIImage*)image
-  withOptions: (NSDictionary *)options
-successHandler: (void (^)(id result))successHandler
-  failHandler: (void (^)(NSError* err))failHandler;
+- (void)formRecognitionFromImage:(UIImage*)image
+                     withOptions:(NSDictionary *)options
+                  successHandler:(void (^)(id result))successHandler
+                     failHandler:(void (^)(NSError* err))failHandler;
 /**
  * 通用文字识别（含位置信息）
  * @param image 需要识别的图片
@@ -43,10 +56,10 @@ successHandler: (void (^)(id result))successHandler
  * @param successHandler 成功回调
  * @param failHandler 失败回调
  */
-- (void) detectTextFromImage: (UIImage*)image
-                 withOptions: (NSDictionary *)options
-              successHandler: (void (^)(id result))successHandler
-                 failHandler: (void (^)(NSError* err))failHandler;
+- (void)detectTextFromImage:(UIImage*)image
+                withOptions:(NSDictionary *)options
+             successHandler:(void (^)(id result))successHandler
+                failHandler:(void (^)(NSError* err))failHandler;
 
 
 /**
@@ -56,10 +69,10 @@ successHandler: (void (^)(id result))successHandler
  * @param successHandler 成功回调
  * @param failHandler 失败回调
  */
-- (void) detectTextBasicFromImage: (UIImage*)image
-                      withOptions: (NSDictionary *)options
-                   successHandler: (void (^)(id result))successHandler
-                      failHandler: (void (^)(NSError* err))failHandler;
+- (void)detectTextBasicFromImage:(UIImage*)image
+                     withOptions:(NSDictionary *)options
+                  successHandler:(void (^)(id result))successHandler
+                     failHandler:(void (^)(NSError* err))failHandler;
 
 /**
  * 通用文字识别（含生僻字版）
@@ -68,10 +81,10 @@ successHandler: (void (^)(id result))successHandler
  * @param successHandler 成功回调
  * @param failHandler 失败回调
  */
-- (void) detectTextEnhancedFromImage: (UIImage*)image
-                         withOptions: (NSDictionary *)options
-                      successHandler: (void (^)(id result))successHandler
-                         failHandler: (void (^)(NSError* err))failHandler;
+- (void)detectTextEnhancedFromImage:(UIImage*)image
+                        withOptions:(NSDictionary *)options
+                     successHandler:(void (^)(id result))successHandler
+                        failHandler:(void (^)(NSError* err))failHandler;
 
 
 
@@ -82,10 +95,10 @@ successHandler: (void (^)(id result))successHandler
  * @param successHandler 成功回调
  * @param failHandler 失败回调
  */
-- (void) detectTextAccurateFromImage: (UIImage*)image
-                         withOptions: (NSDictionary *)options
-                      successHandler: (void (^)(id result))successHandler
-                         failHandler: (void (^)(NSError* err))failHandler;
+- (void)detectTextAccurateFromImage:(UIImage*)image
+                        withOptions:(NSDictionary *)options
+                     successHandler:(void (^)(id result))successHandler
+                        failHandler:(void (^)(NSError* err))failHandler;
 
 
 /**
@@ -100,10 +113,10 @@ successHandler: (void (^)(id result))successHandler
                           successHandler:(void (^)(id result))successHandler
                              failHandler:(void (^)(NSError *err))failHandler;
 
-- (void) detectIdCardFromImage: (UIImage*)image
-                   withOptions: (NSDictionary *)options
-                successHandler: (void (^)(id result))successHandler
-                   failHandler: (void (^)(NSError* err))failHandler;
+- (void)detectIdCardFromImage:(UIImage*)image
+                  withOptions:(NSDictionary *)options
+               successHandler:(void (^)(id result))successHandler
+                  failHandler:(void (^)(NSError* err))failHandler;
 
 /**
  * 身份证正面识别
@@ -135,9 +148,9 @@ successHandler: (void (^)(id result))successHandler
  * @param successHandler 成功回调
  * @param failHandler 失败回调
  */
-- (void) detectBankCardFromImage: (UIImage*)image
-                  successHandler: (void (^)(id result))successHandler
-                     failHandler: (void (^)(NSError* err))failHandler;
+- (void)detectBankCardFromImage:(UIImage*)image
+                 successHandler:(void (^)(id result))successHandler
+                    failHandler:(void (^)(NSError* err))failHandler;
 
 
 /**
@@ -159,10 +172,10 @@ successHandler: (void (^)(id result))successHandler
  * @param successHandler 成功回调
  * @param failHandler 失败回调
  */
-- (void) detectDrivingLicenseFromImage: (UIImage *)image
-                           withOptions: (NSDictionary *)options
-                        successHandler: (void (^)(id result))successHandler
-                           failHandler: (void (^)(NSError* err))failHandler;
+- (void)detectDrivingLicenseFromImage:(UIImage *)image
+                          withOptions:(NSDictionary *)options
+                       successHandler:(void (^)(id result))successHandler
+                          failHandler:(void (^)(NSError* err))failHandler;
 
 /**
  * 行驶证证识别
@@ -171,10 +184,10 @@ successHandler: (void (^)(id result))successHandler
  * @param successHandler 成功回调
  * @param failHandler 失败回调
  */
-- (void) detectVehicleLicenseFromImage: (UIImage *)image
-                           withOptions: (NSDictionary *)options
-                        successHandler: (void (^)(id result))successHandler
-                           failHandler: (void (^)(NSError* err))failHandler;
+- (void)detectVehicleLicenseFromImage:(UIImage *)image
+                          withOptions:(NSDictionary *)options
+                       successHandler:(void (^)(id result))successHandler
+                          failHandler:(void (^)(NSError* err))failHandler;
 
 /**
  * 车牌证识别
@@ -186,7 +199,7 @@ successHandler: (void (^)(id result))successHandler
 - (void)detectPlateNumberFromImage:(UIImage *)image
                        withOptions:(NSDictionary *)options
                     successHandler:(void (^)(id result))successHandler
-                       failHandler: (void (^)(NSError* err))failHandler;
+                       failHandler:(void (^)(NSError* err))failHandler;
 
 
 
@@ -197,10 +210,10 @@ successHandler: (void (^)(id result))successHandler
  * @param successHandler 成功回调
  * @param failHandler 失败回调
  */
-- (void) detectBusinessLicenseFromImage: (UIImage *)image
-                            withOptions: (NSDictionary *)options
-                         successHandler: (void (^)(id result))successHandler
-                            failHandler: (void (^)(NSError* err))failHandler;
+- (void)detectBusinessLicenseFromImage:(UIImage *)image
+                           withOptions:(NSDictionary *)options
+                        successHandler:(void (^)(id result))successHandler
+                           failHandler:(void (^)(NSError* err))failHandler;
 
 
 /**
@@ -210,10 +223,10 @@ successHandler: (void (^)(id result))successHandler
  * @param successHandler 成功回调
  * @param failHandler 失败回调
  */
-- (void) detectReceiptFromImage: (UIImage *)image
-                    withOptions: (NSDictionary *)options
-                 successHandler: (void (^)(id result))successHandler
-                    failHandler: (void (^)(NSError* err))failHandler;
+- (void)detectReceiptFromImage:(UIImage *)image
+                   withOptions:(NSDictionary *)options
+                successHandler:(void (^)(id result))successHandler
+                   failHandler:(void (^)(NSError* err))failHandler;
 
 /**
  * iOCR
@@ -222,20 +235,75 @@ successHandler: (void (^)(id result))successHandler
  * @param successHandler 成功回调
  * @param failHandler 失败回调
  */
-- (void) iOCRRecognitionFromImage: (UIImage *)image
-                    withOptions: (NSDictionary *)options
-                 successHandler: (void (^)(id result))successHandler
-                    failHandler: (void (^)(NSError* err))failHandler;
+- (void)iOCRRecognitionFromImage:(UIImage *)image
+                     withOptions:(NSDictionary *)options
+                  successHandler:(void (^)(id result))successHandler
+                     failHandler:(void (^)(NSError* err))failHandler;
 
 
 /**
- * 清空验证缓存
- * 出现验证过期等特殊情况调用
+ * 增值税发票识别
+ * @param image 图像
+ * @param options 可选参数
+ * @param successHandler 成功回调
+ * @param failHandler 失败回调
  */
-- (void) clearCache;
+- (void)detectValueAddedTaxImage:(UIImage *)image
+                     withOptions:(NSDictionary *)options
+                  successHandler:(void (^)(id result))successHandler
+                     failHandler:(void (^)(NSError* err))failHandler;
 
-+ (NSError *)aipErrorWithCode:(NSInteger)code andMessage:(NSString *)message;
 
-+ (instancetype)shardService;
+/**
+ * 出租车车票识别
+ * @param image 图像
+ * @param options 可选参数
+ * @param successHandler 成功回调
+ * @param failHandler 失败回调
+ */
+- (void)detectTaxiReceiptImage:(UIImage *)image
+                     withOptions:(NSDictionary *)options
+                  successHandler:(void (^)(id result))successHandler
+                     failHandler:(void (^)(NSError* err))failHandler;
+
+
+/**
+ * VIN码识别
+ * @param image 图像
+ * @param options 可选参数
+ * @param successHandler 成功回调
+ * @param failHandler 失败回调
+ */
+- (void)detectVinCodeImage:(UIImage *)image
+                     withOptions:(NSDictionary *)options
+                  successHandler:(void (^)(id result))successHandler
+                     failHandler:(void (^)(NSError* err))failHandler;
+
+
+/**
+ * 火车票识别
+ * @param image 图像
+ * @param options 可选参数
+ * @param successHandler 成功回调
+ * @param failHandler 失败回调
+ */
+- (void)detectTrainTicketImage:(UIImage *)image
+                     withOptions:(NSDictionary *)options
+                  successHandler:(void (^)(id result))successHandler
+                     failHandler:(void (^)(NSError* err))failHandler;
+
+
+/**
+ * 数字识别
+ * @param image 图像
+ * @param options 可选参数
+ * @param successHandler 成功回调
+ * @param failHandler 失败回调
+ */
+- (void)detectNumbersImage:(UIImage *)image
+                     withOptions:(NSDictionary *)options
+                  successHandler:(void (^)(id result))successHandler
+                     failHandler:(void (^)(NSError* err))failHandler;
+
 
 @end

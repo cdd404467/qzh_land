@@ -35,6 +35,33 @@
     return _dataSource;
 }
 
+- (UITableView *)tableView {
+    if (!_tableView) {
+        _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, NAV_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT - NAV_HEIGHT) style:UITableViewStylePlain];
+        _tableView.delegate = self;
+        _tableView.dataSource = self;
+        _tableView.emptyDataSetSource = self;
+        _tableView.emptyDataSetDelegate = self;
+        _tableView.backgroundColor = TableColor;
+        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        _tableView.tableHeaderView = [self headerView];
+        _tableView.contentInset = UIEdgeInsetsMake(10, 0, 0, 0);
+//        _tableView.scrollIndicatorInsets = _tableView.contentInset;
+        DDWeakSelf;
+        [_tableView addHeaderWithRefresh:^(NSInteger pageIndex) {
+            weakself.pageNumber = pageIndex;
+            [weakself requestList];
+        }];
+        
+        [_tableView addFooterWithRefresh:^(NSInteger pageIndex) {
+            weakself.pageNumber = pageIndex;
+            [weakself requestList];
+        }];
+        _tableView.mj_header.ignoredScrollViewContentInsetTop = 10;
+    }
+    return _tableView;
+}
+
 - (void)requestList {
     NSDictionary *dict = @{@"userPhone":User_Phone,
                            @"status":@"11",
@@ -47,8 +74,7 @@
                 [self.dataSource removeAllObjects];
             }
             [self.dataSource addObjectsFromArray:tempArr];
-            [self.tableView.mj_header endRefreshing];
-            [self.tableView.mj_footer endRefreshing];
+            [self.tableView endRefreshWithDataCount:tempArr.count];
             [self.tableView reloadData];
             if (self.dataSource.count > 0) {
                 self.headerLab.text = [NSString stringWithFormat:@"您有%lu份租客合同待签约确定，快去签约吧!",(unsigned long)self.dataSource.count];
@@ -59,32 +85,6 @@
     } Failure:^(NSError * _Nonnull error) {
         
     }];
-}
-
-- (UITableView *)tableView {
-    if (!_tableView) {
-        _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, NAV_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT - NAV_HEIGHT) style:UITableViewStylePlain];
-        _tableView.delegate = self;
-        _tableView.dataSource = self;
-        _tableView.emptyDataSetSource = self;
-        _tableView.emptyDataSetDelegate = self;
-        _tableView.backgroundColor = TableColor;
-        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-        _tableView.tableHeaderView = [self headerView];
-        _tableView.contentInset = UIEdgeInsetsMake(10, 0, TABBAR_HEIGHT + 30, 0);
-//        _tableView.scrollIndicatorInsets = _tableView.contentInset;
-        DDWeakSelf;
-        _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-            weakself.pageNumber = 1;
-            [self requestList];
-        }];
-        _tableView.mj_header.ignoredScrollViewContentInsetTop = 10;
-        _tableView.mj_footer=[MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
-            weakself.pageNumber++;
-            [self requestList];
-        }];
-    }
-    return _tableView;
 }
 
 - (UIView *)headerView {

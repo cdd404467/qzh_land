@@ -23,7 +23,9 @@
 #define RGBA(r, g, b, a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)]
 #define RGBA_F(r, g, b, a) [UIColor colorWithRed:(r) green:(g) blue:(b) alpha:(a)]
 //全局主题色
+//#28C3CE
 #define MainColor [UIColor colorWithHexString:[PublicPara mainColorStr]]
+
 #define Like_Color HEXColor(@"#ededed", 1)
 #define Line_Color RGBA(232, 232, 232, 1)
 #define Cell_Line_Color HEXColor(@"#EEEEEE", 1)
@@ -68,7 +70,7 @@
 #define JsonCode [json[@"code"] integerValue]
 
 #define BR_Appearance [AppGlobalSet pickViewStyle]
-#define wxAppID @"wx2a1f65135ba300ff"
+#define wxAppID @"wx91b2968de624ca9a"
 
 
 //判断后台返回数据是合法的
@@ -91,16 +93,22 @@
 /*********   本地存储   *********/
 //NSUserDefaults
 #define UserDefault [NSUserDefaults standardUserDefaults]
+//取token
+#define Get_User_Token [User_Info objectForKey:@"token"]
+//判断是否登陆
+#define isUserLogin (Get_User_Token ? YES : NO)
+//存储的token
+#define User_Token (Get_User_Token ? Get_User_Token : @"")
 //用户信息
 #define User_Info [UserDefault objectForKey:@"userInfo"]
 //存储的手机号
-#define User_Phone [User_Info objectForKey:@"userPhone"]
+#define User_Phone ([User_Info objectForKey:@"userPhone"] ? [User_Info objectForKey:@"userPhone"] : @"")
 //账户余额
-#define User_Money [User_Info objectForKey:@"userMoney"]
+#define User_Money ([User_Info objectForKey:@"userMoney"] ? [User_Info objectForKey:@"userMoney"] : @"")
 //用户名
-#define User_Name [User_Info objectForKey:@"userName"]
+#define User_Name ([User_Info objectForKey:@"userName"] ? [User_Info objectForKey:@"userName"] : @"")
 //用户名
-#define User_Id [User_Info objectForKey:@"id"]
+#define User_Id ([User_Info objectForKey:@"id"] ? [User_Info objectForKey:@"id"] : @"")
 //用户是否设置过支付密码
 //#define User_IsSetPW ([[User_Info objectForKey:@"isSetPW"] integerValue] == 1 ? YES : NO)
 #define User_IsSetPW [QuickTool isSetPassword]
@@ -112,13 +120,8 @@
 #define ContactPhone [UserDefault objectForKey:@"contactPhone"]
 //小程序扫码地址
 #define MiniProgramQrcode [UserDefault objectForKey:@"wxQrCode"]
-
-//取token
-#define Get_User_Token [User_Info objectForKey:@"token"]
-//判断是否登陆
-#define isUserLogin (Get_User_Token ? YES : NO)
-//存储的token
-#define User_Token (Get_User_Token ? Get_User_Token : @"")
+//轻资产服务
+#define LightServicesH5 [UserDefault objectForKey:@"assetLightServicesH5"]
 //极光ID
 #define JPushID [UserDefault objectForKey:@"jpushID"]
 

@@ -11,8 +11,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MyLeaseVC : BaseViewController
-//1-联系管家过来的
+//0-正常列表 1-联系管家过来的 2-我的页面跳转过来
 @property (nonatomic, assign)NSInteger type;
+@property (nonatomic, assign)NSInteger count;
 @end
 
 NS_ASSUME_NONNULL_END

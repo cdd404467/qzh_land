@@ -32,7 +32,13 @@
 
 - (void)requestData {
     NSDictionary *dict = @{@"id":_conID};
-    [NetTool postRequest:URLPost_Preview_Con Params:dict Success:^(id  _Nonnull json) {
+    NSString *urlString = [NSString string];
+    if (_type == 1) {
+        urlString = URLPost_Preview_Con;
+    } else if (_type == 2) {
+        urlString = URLPost_Preview_OwerCon;
+    }
+    [NetTool postRequest:urlString Params:dict Success:^(id  _Nonnull json) {
         if (JsonCode == 200) {
             [self loadWebView:json[@"data"][@"content"]];
             [self setupUI];
@@ -64,6 +70,7 @@
 - (void)signOnline {
     SignOnlineVC *vc = [[SignOnlineVC alloc] init];
     vc.conID = _conID;
+    vc.type = _type;
     [self.navigationController pushViewController:vc animated:YES];
 }
 

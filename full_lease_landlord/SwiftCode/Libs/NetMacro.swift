@@ -32,7 +32,7 @@ class NetMacro: NSObject {
         }
         switch SelectServerApi(Server) {
         case .Production:
-            return "https://yzhjava.yizuhui.vip/" + url
+            return DevelopTool.selectProductServerApi(url) + url
         case .Test1:
             return "http://101.132.154.194/" + url
         case .Test2:

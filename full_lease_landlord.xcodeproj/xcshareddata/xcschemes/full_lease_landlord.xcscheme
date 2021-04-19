@@ -70,6 +70,13 @@
             ReferencedContainer = "container:full_lease_landlord.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <EnvironmentVariables>
+         <EnvironmentVariable
+            key = "DYLD_PRINT_STATISTICS"
+            value = "1"
+            isEnabled = "NO">
+         </EnvironmentVariable>
+      </EnvironmentVariables>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"

@@ -79,7 +79,6 @@
     otherBgView.backgroundColor = UIColor.whiteColor;
     [self.scrollView addSubview:otherBgView];
     
-    //联系电话
     UIView *contactView = [[UIView alloc] initWithFrame:CGRectMake(KFit_W(16), KFit_W(30), SCREEN_WIDTH - KFit_W(32), KFit_W(54))];
     contactView.layer.cornerRadius = 4.f;
     contactView.clipsToBounds = YES;
@@ -129,53 +128,53 @@
     }];
     
     //赔偿空置金
-//    UIView *emptyCompensationView = [[UIView alloc] initWithFrame:CGRectMake(contactView.left, contactView.bottom + KFit_W(35), contactView.width, KFit_W(61))];
-//    emptyCompensationView.layer.cornerRadius = 4.f;
-//    emptyCompensationView.layer.borderColor = HEXColor(@"#E9E8E8", 1).CGColor;
-//    emptyCompensationView.layer.borderWidth = 0.5f;
-//    [otherBgView addSubview:emptyCompensationView];
-//
-//    UIImageView *emptyImageView = [[UIImageView alloc] init];
-//    emptyImageView.image = [UIImage imageNamed:@"house_empty_img"];
-//    [emptyCompensationView addSubview:emptyImageView];
-//    [emptyImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.mas_equalTo(KFit_W(30));
-//        make.width.mas_equalTo(KFit_W(64));
-//        make.height.mas_equalTo(KFit_W(52));
-//        make.centerY.mas_equalTo(emptyImageView);
-//    }];
-//
-//    UIButton *empty_checkBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-//    empty_checkBtn.layer.cornerRadius = 4;
-//    empty_checkBtn.layer.borderColor = MainColor.CGColor;
-//    empty_checkBtn.layer.borderWidth = 0.5f;
-//    [empty_checkBtn setTitleColor:MainColor forState:UIControlStateNormal];
-//    [empty_checkBtn setTitle:@"查看" forState:UIControlStateNormal];
-//    empty_checkBtn.backgroundColor = UIColor.whiteColor;
-//    [empty_checkBtn addTarget:self action:@selector(emptyCompen) forControlEvents:UIControlEventTouchUpInside];
-//    empty_checkBtn.titleLabel.font = kFont(14);
-//    [emptyCompensationView addSubview:empty_checkBtn];
-//    [empty_checkBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.right.mas_equalTo(KFit_W(-25));
-//        make.centerY.mas_equalTo(emptyCompensationView);
-//        make.width.mas_equalTo(KFit_W(60));
-//        make.height.mas_equalTo(KFit_W(20));
-//    }];
-//
-//    UILabel *txtlab_1 = [[UILabel alloc] init];
-//    txtlab_1.font = kFont(14);
-//    txtlab_1.text = @"空置赔偿金";
-//    txtlab_1.textColor = HEXColor(@"#1C1C1C", 1);
-//    [emptyCompensationView addSubview:txtlab_1];
-//    [txtlab_1 mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.mas_equalTo(emptyImageView.mas_right).offset(KFit_W(40));
-//        make.right.mas_equalTo(empty_checkBtn.mas_left).offset(5);
-//        make.centerY.mas_equalTo(emptyCompensationView);
-//        make.height.mas_equalTo(KFit_W(20));
-//    }];
+    UIView *emptyCompensationView = [[UIView alloc] initWithFrame:CGRectMake(contactView.left, contactView.bottom + KFit_W(35), contactView.width, KFit_W(61))];
+    emptyCompensationView.layer.cornerRadius = 4.f;
+    emptyCompensationView.layer.borderColor = HEXColor(@"#E9E8E8", 1).CGColor;
+    emptyCompensationView.layer.borderWidth = 0.5f;
+    [otherBgView addSubview:emptyCompensationView];
+    
+    UIImageView *emptyImageView = [[UIImageView alloc] init];
+    emptyImageView.image = [UIImage imageNamed:@"house_empty_img"];
+    [emptyCompensationView addSubview:emptyImageView];
+    [emptyImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(KFit_W(30));
+        make.width.mas_equalTo(KFit_W(64));
+        make.height.mas_equalTo(KFit_W(52));
+        make.centerY.mas_equalTo(emptyImageView);
+    }];
+    
+    UIButton *empty_checkBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    empty_checkBtn.layer.cornerRadius = 4;
+    empty_checkBtn.layer.borderColor = MainColor.CGColor;
+    empty_checkBtn.layer.borderWidth = 0.5f;
+    [empty_checkBtn setTitleColor:MainColor forState:UIControlStateNormal];
+    [empty_checkBtn setTitle:@"查看" forState:UIControlStateNormal];
+    empty_checkBtn.backgroundColor = UIColor.whiteColor;
+    [empty_checkBtn addTarget:self action:@selector(emptyCompen) forControlEvents:UIControlEventTouchUpInside];
+    empty_checkBtn.titleLabel.font = kFont(14);
+    [emptyCompensationView addSubview:empty_checkBtn];
+    [empty_checkBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.mas_equalTo(KFit_W(-25));
+        make.centerY.mas_equalTo(emptyCompensationView);
+        make.width.mas_equalTo(KFit_W(60));
+        make.height.mas_equalTo(KFit_W(20));
+    }];
+    
+    UILabel *txtlab_1 = [[UILabel alloc] init];
+    txtlab_1.font = kFont(14);
+    txtlab_1.text = @"空置赔偿金";
+    txtlab_1.textColor = HEXColor(@"#1C1C1C", 1);
+    [emptyCompensationView addSubview:txtlab_1];
+    [txtlab_1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(emptyImageView.mas_right).offset(KFit_W(40));
+        make.right.mas_equalTo(empty_checkBtn.mas_left).offset(5);
+        make.centerY.mas_equalTo(emptyCompensationView);
+        make.height.mas_equalTo(KFit_W(20));
+    }];
     
     //业主合同
-    UIView *landlordConView = [[UIView alloc] initWithFrame:CGRectMake(contactView.left, contactView.bottom + KFit_W(35), contactView.width, contactView.height)];
+    UIView *landlordConView = [[UIView alloc] initWithFrame:CGRectMake(emptyCompensationView.left, emptyCompensationView.bottom + KFit_W(35), emptyCompensationView.width, emptyCompensationView.height)];
     landlordConView.layer.cornerRadius = 4.f;
     landlordConView.layer.borderColor = HEXColor(@"#E9E8E8", 1).CGColor;
     landlordConView.layer.borderWidth = 0.5f;

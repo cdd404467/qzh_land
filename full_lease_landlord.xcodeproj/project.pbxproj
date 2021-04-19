@@ -118,6 +118,7 @@
 		182AC6342609B71900CB0097 /* MyLeaseDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182AC6332609B71900CB0097 /* MyLeaseDetailCell.swift */; };
 		182AC63B2609C26C00CB0097 /* UILabel+Insets.m in Sources */ = {isa = PBXBuildFile; fileRef = 182AC63A2609C26C00CB0097 /* UILabel+Insets.m */; };
 		182AC6462609CC3600CB0097 /* MyLeaseDetailSecHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182AC6452609CC3600CB0097 /* MyLeaseDetailSecHeader.swift */; };
+		182AF377261EEAF20007AB46 /* GoSignView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182AF376261EEAF20007AB46 /* GoSignView.swift */; };
 		182E3153251A1F0600A1E1DF /* PayVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 182E3152251A1F0600A1E1DF /* PayVC.m */; };
 		182E3157251A225D00A1E1DF /* PayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 182E3156251A225D00A1E1DF /* PayCell.m */; };
 		182FF484251E003800042DC9 /* PayStateVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 182FF483251E003800042DC9 /* PayStateVC.m */; };
@@ -130,13 +131,10 @@
 		18369C7F25B56A62003FC3E8 /* SwiftPch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18369C7E25B56A62003FC3E8 /* SwiftPch.swift */; };
 		18369CCB25B80AB5003FC3E8 /* UITableView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 18369CCA25B80AB4003FC3E8 /* UITableView+Extension.m */; };
 		1837ECEC254A8BB9001453A9 /* WebViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1837ECEB254A8BB9001453A9 /* WebViewVC.m */; };
-		183A323025E0ECD3008EAB1E /* NetTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183A322D25E0ECD3008EAB1E /* NetTool.swift */; };
-		183A323125E0ECD3008EAB1E /* CommonTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183A322E25E0ECD3008EAB1E /* CommonTool.swift */; };
-		183A323225E0ECD3008EAB1E /* FastTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183A322F25E0ECD3008EAB1E /* FastTool.swift */; };
-		183A323825E0ECE4008EAB1E /* TimeAbout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183A323725E0ECE4008EAB1E /* TimeAbout.swift */; };
-		183A324125E0ED1A008EAB1E /* LandlordRecommendVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183A323F25E0ED1A008EAB1E /* LandlordRecommendVC.swift */; };
-		183A324225E0ED1A008EAB1E /* RecommendNowVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183A324025E0ED1A008EAB1E /* RecommendNowVC.swift */; };
-		183EBE7B25C10A4E00645237 /* QrCodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 183EBE7A25C10A4E00645237 /* QrCodeView.m */; };
+		183A320725DF9FFA008EAB1E /* LandlordRecommendVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183A320625DF9FFA008EAB1E /* LandlordRecommendVC.swift */; };
+		183A320B25DFA48F008EAB1E /* RecommendNowVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183A320A25DFA48F008EAB1E /* RecommendNowVC.swift */; };
+		183A322125DFCB4C008EAB1E /* CommonTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183A322025DFCB4C008EAB1E /* CommonTool.swift */; };
+		183EBEBC25C118D800645237 /* QrCodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 183EBEBA25C118D800645237 /* QrCodeView.m */; };
 		184260DB259DB49000255441 /* NetMacro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184260DA259DB49000255441 /* NetMacro.swift */; };
 		1842612325A478AA00255441 /* PrivacyAgreementVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1842612225A478AA00255441 /* PrivacyAgreementVC.swift */; };
 		1842612D25A5873300255441 /* SystemSettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1842612C25A5873300255441 /* SystemSettingsVC.swift */; };
@@ -183,6 +181,8 @@
 		185006782578E322006B32F3 /* DoorLockCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 185006772578E322006B32F3 /* DoorLockCell.m */; };
 		18500722257A248C006B32F3 /* SystemTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 18500721257A248C006B32F3 /* SystemTool.m */; };
 		185087FE2599992100699B46 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185087FD2599992100699B46 /* UIColor+Extension.swift */; };
+		185088062599C71700699B46 /* FastTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185088052599C71700699B46 /* FastTool.swift */; };
+		185088242599CF2800699B46 /* NetTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185088232599CF2800699B46 /* NetTool.swift */; };
 		1858FFEB2562382900E593C8 /* NSArray+AvoidCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = 1858FFD42562382900E593C8 /* NSArray+AvoidCrash.m */; };
 		1858FFEC2562382900E593C8 /* NSString+AvoidCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = 1858FFD62562382900E593C8 /* NSString+AvoidCrash.m */; };
 		1858FFED2562382900E593C8 /* NSDictionary+AvoidCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = 1858FFD72562382900E593C8 /* NSDictionary+AvoidCrash.m */; };
@@ -230,12 +230,14 @@
 		18BC5310255FFAB10056C249 /* WalletRecordVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BC530F255FFAB10056C249 /* WalletRecordVC.m */; };
 		18BC531C255FFC1D0056C249 /* WalletModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BC531B255FFC1D0056C249 /* WalletModel.m */; };
 		18C413002594A19D00C39F1F /* DecorateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C412FF2594A19D00C39F1F /* DecorateVC.swift */; };
-		18CE141525C17A7700764064 /* PublicPara.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CE141425C17A7700764064 /* PublicPara.swift */; };
-		18CE144A25C2B73B00764064 /* UIView+Effects.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CE144825C2B73A00764064 /* UIView+Effects.m */; };
-		18CE150B25C92AFE00764064 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CE150925C92AFE00764064 /* String+Extension.swift */; };
-		18CE150C25C92AFE00764064 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CE150A25C92AFE00764064 /* UIImage+Extension.swift */; };
-		18CE151025C92B1C00764064 /* AddAliPayVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CE150F25C92B1C00764064 /* AddAliPayVC.swift */; };
-		18CE151725C92B6A00764064 /* CheckPayPasswordVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CE151525C92B6900764064 /* CheckPayPasswordVC.m */; };
+		18CE13D725C1701700764064 /* PublicPara.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CE13D625C1701700764064 /* PublicPara.swift */; };
+		18CE143C25C2AC4E00764064 /* UIView+Effects.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CE143A25C2AC4E00764064 /* UIView+Effects.m */; };
+		18CE146425C3BB4200764064 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CE146325C3BB4200764064 /* UIImage+Extension.swift */; };
+		18CE146825C3E4AE00764064 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CE146725C3E4AE00764064 /* String+Extension.swift */; };
+		18CE14F725C7A8AE00764064 /* AddAliPayVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CE14F625C7A8AD00764064 /* AddAliPayVC.swift */; };
+		18CE150225C7DD4C00764064 /* CheckPayPasswordVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CE150125C7DD4C00764064 /* CheckPayPasswordVC.m */; };
+		18CE151D25C92CAC00764064 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CE151C25C92CAC00764064 /* UILabel+Extension.swift */; };
+		18CE152925C93D9C00764064 /* TimeAbout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CE152825C93D9C00764064 /* TimeAbout.swift */; };
 		18EC544F2553F7FD00A393EA /* MyWalletVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EC544E2553F7FD00A393EA /* MyWalletVC.m */; };
 		18EC54562554086200A393EA /* MyWalletCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EC54552554086200A393EA /* MyWalletCell.m */; };
 		18EC545F25540D5100A393EA /* MyWalletTBHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EC545E25540D5100A393EA /* MyWalletTBHeader.m */; };
@@ -503,6 +505,7 @@
 		182AC6392609C26C00CB0097 /* UILabel+Insets.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UILabel+Insets.h"; sourceTree = "<group>"; };
 		182AC63A2609C26C00CB0097 /* UILabel+Insets.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Insets.m"; sourceTree = "<group>"; };
 		182AC6452609CC3600CB0097 /* MyLeaseDetailSecHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLeaseDetailSecHeader.swift; sourceTree = "<group>"; };
+		182AF376261EEAF20007AB46 /* GoSignView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoSignView.swift; sourceTree = "<group>"; };
 		182E3151251A1F0600A1E1DF /* PayVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PayVC.h; sourceTree = "<group>"; };
 		182E3152251A1F0600A1E1DF /* PayVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PayVC.m; sourceTree = "<group>"; };
 		182E3155251A225D00A1E1DF /* PayCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PayCell.h; sourceTree = "<group>"; };
@@ -512,19 +515,17 @@
 		183112A425625254009802FC /* AipOcrSdk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AipOcrSdk.framework; sourceTree = "<group>"; };
 		183112A525625254009802FC /* IdcardQuality.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IdcardQuality.framework; sourceTree = "<group>"; };
 		183112A625625254009802FC /* AipBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AipBase.framework; sourceTree = "<group>"; };
+		1831572E2514BB200000388A /* 全住房东端.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "全住房东端.entitlements"; sourceTree = "<group>"; };
 		18369C7E25B56A62003FC3E8 /* SwiftPch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftPch.swift; sourceTree = "<group>"; };
 		18369CC925B80AB4003FC3E8 /* UITableView+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITableView+Extension.h"; sourceTree = "<group>"; };
 		18369CCA25B80AB4003FC3E8 /* UITableView+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITableView+Extension.m"; sourceTree = "<group>"; };
 		1837ECEA254A8BB9001453A9 /* WebViewVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebViewVC.h; sourceTree = "<group>"; };
 		1837ECEB254A8BB9001453A9 /* WebViewVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebViewVC.m; sourceTree = "<group>"; };
-		183A322D25E0ECD3008EAB1E /* NetTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetTool.swift; sourceTree = "<group>"; };
-		183A322E25E0ECD3008EAB1E /* CommonTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonTool.swift; sourceTree = "<group>"; };
-		183A322F25E0ECD3008EAB1E /* FastTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FastTool.swift; sourceTree = "<group>"; };
-		183A323725E0ECE4008EAB1E /* TimeAbout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeAbout.swift; sourceTree = "<group>"; };
-		183A323F25E0ED1A008EAB1E /* LandlordRecommendVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandlordRecommendVC.swift; sourceTree = "<group>"; };
-		183A324025E0ED1A008EAB1E /* RecommendNowVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendNowVC.swift; sourceTree = "<group>"; };
-		183EBE7925C10A4E00645237 /* QrCodeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QrCodeView.h; sourceTree = "<group>"; };
-		183EBE7A25C10A4E00645237 /* QrCodeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QrCodeView.m; sourceTree = "<group>"; };
+		183A320625DF9FFA008EAB1E /* LandlordRecommendVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandlordRecommendVC.swift; sourceTree = "<group>"; };
+		183A320A25DFA48F008EAB1E /* RecommendNowVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendNowVC.swift; sourceTree = "<group>"; };
+		183A322025DFCB4C008EAB1E /* CommonTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonTool.swift; sourceTree = "<group>"; };
+		183EBEBA25C118D800645237 /* QrCodeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QrCodeView.m; sourceTree = "<group>"; };
+		183EBEBB25C118D800645237 /* QrCodeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QrCodeView.h; sourceTree = "<group>"; };
 		184260DA259DB49000255441 /* NetMacro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetMacro.swift; sourceTree = "<group>"; };
 		1842612225A478AA00255441 /* PrivacyAgreementVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyAgreementVC.swift; sourceTree = "<group>"; };
 		1842612C25A5873300255441 /* SystemSettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemSettingsVC.swift; sourceTree = "<group>"; };
@@ -612,6 +613,8 @@
 		18500720257A248C006B32F3 /* SystemTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SystemTool.h; sourceTree = "<group>"; };
 		18500721257A248C006B32F3 /* SystemTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SystemTool.m; sourceTree = "<group>"; };
 		185087FD2599992100699B46 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		185088052599C71700699B46 /* FastTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastTool.swift; sourceTree = "<group>"; };
+		185088232599CF2800699B46 /* NetTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetTool.swift; sourceTree = "<group>"; };
 		1858FFD42562382900E593C8 /* NSArray+AvoidCrash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+AvoidCrash.m"; sourceTree = "<group>"; };
 		1858FFD52562382900E593C8 /* AvoidCrash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AvoidCrash.h; sourceTree = "<group>"; };
 		1858FFD62562382900E593C8 /* NSString+AvoidCrash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+AvoidCrash.m"; sourceTree = "<group>"; };
@@ -704,14 +707,16 @@
 		18BC531A255FFC1D0056C249 /* WalletModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WalletModel.h; sourceTree = "<group>"; };
 		18BC531B255FFC1D0056C249 /* WalletModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WalletModel.m; sourceTree = "<group>"; };
 		18C412FF2594A19D00C39F1F /* DecorateVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecorateVC.swift; sourceTree = "<group>"; };
-		18CE141425C17A7700764064 /* PublicPara.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublicPara.swift; sourceTree = "<group>"; };
-		18CE144825C2B73A00764064 /* UIView+Effects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Effects.m"; sourceTree = "<group>"; };
-		18CE144925C2B73B00764064 /* UIView+Effects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Effects.h"; sourceTree = "<group>"; };
-		18CE150925C92AFE00764064 /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
-		18CE150A25C92AFE00764064 /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
-		18CE150F25C92B1C00764064 /* AddAliPayVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAliPayVC.swift; sourceTree = "<group>"; };
-		18CE151525C92B6900764064 /* CheckPayPasswordVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckPayPasswordVC.m; sourceTree = "<group>"; };
-		18CE151625C92B6900764064 /* CheckPayPasswordVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckPayPasswordVC.h; sourceTree = "<group>"; };
+		18CE13D625C1701700764064 /* PublicPara.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicPara.swift; sourceTree = "<group>"; };
+		18CE143A25C2AC4E00764064 /* UIView+Effects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Effects.m"; sourceTree = "<group>"; };
+		18CE143B25C2AC4E00764064 /* UIView+Effects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Effects.h"; sourceTree = "<group>"; };
+		18CE146325C3BB4200764064 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		18CE146725C3E4AE00764064 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		18CE14F625C7A8AD00764064 /* AddAliPayVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAliPayVC.swift; sourceTree = "<group>"; };
+		18CE150025C7DD4C00764064 /* CheckPayPasswordVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CheckPayPasswordVC.h; sourceTree = "<group>"; };
+		18CE150125C7DD4C00764064 /* CheckPayPasswordVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CheckPayPasswordVC.m; sourceTree = "<group>"; };
+		18CE151C25C92CAC00764064 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
+		18CE152825C93D9C00764064 /* TimeAbout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeAbout.swift; sourceTree = "<group>"; };
 		18EC544D2553F7FD00A393EA /* MyWalletVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyWalletVC.h; sourceTree = "<group>"; };
 		18EC544E2553F7FD00A393EA /* MyWalletVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyWalletVC.m; sourceTree = "<group>"; };
 		18EC54542554086200A393EA /* MyWalletCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyWalletCell.h; sourceTree = "<group>"; };
@@ -778,7 +783,7 @@
 			children = (
 				1827DCC425ADA8F80073E02C /* Base */,
 				180456E62521E820003B23D3 /* Extension */,
-				183A322C25E0ECD3008EAB1E /* Tools */,
+				183A321525DFC816008EAB1E /* Tools */,
 				180456E02521E693003B23D3 /* Libs */,
 				180456C32521DC6F003B23D3 /* full_lease_landlord-Bridging-Header.h */,
 				180456C92521DCF7003B23D3 /* TestSwift.swift */,
@@ -792,9 +797,9 @@
 			children = (
 				180456E12521E72E003B23D3 /* MacroFile.swift */,
 				184260DA259DB49000255441 /* NetMacro.swift */,
-				18CE141425C17A7700764064 /* PublicPara.swift */,
+				18CE13D625C1701700764064 /* PublicPara.swift */,
+				18CE152825C93D9C00764064 /* TimeAbout.swift */,
 				18369C7E25B56A62003FC3E8 /* SwiftPch.swift */,
-				183A323725E0ECE4008EAB1E /* TimeAbout.swift */,
 			);
 			path = Libs;
 			sourceTree = "<group>";
@@ -802,11 +807,12 @@
 		180456E62521E820003B23D3 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				18CE150925C92AFE00764064 /* String+Extension.swift */,
-				18CE150A25C92AFE00764064 /* UIImage+Extension.swift */,
 				185087FD2599992100699B46 /* UIColor+Extension.swift */,
 				1842621225A705B800255441 /* UIView+Extension.swift */,
 				1827DCB825AD8E550073E02C /* UITableView+Extension.swift */,
+				18CE146325C3BB4200764064 /* UIImage+Extension.swift */,
+				18CE146725C3E4AE00764064 /* String+Extension.swift */,
+				18CE151C25C92CAC00764064 /* UILabel+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -958,6 +964,7 @@
 				1826C36C24EFF9FC0016E725 /* ViewController.h */,
 				1826C36D24EFF9FC0016E725 /* ViewController.m */,
 				1826C36F24EFF9FC0016E725 /* Main.storyboard */,
+				1831572E2514BB200000388A /* 全住房东端.entitlements */,
 				1826C37224EFF9FE0016E725 /* Assets.xcassets */,
 				1826C37424EFF9FE0016E725 /* LaunchScreen.storyboard */,
 				1826C37724EFF9FE0016E725 /* Info.plist */,
@@ -1027,8 +1034,8 @@
 		1826C3B124F0014A0016E725 /* CateGory */ = {
 			isa = PBXGroup;
 			children = (
-				18CE144925C2B73B00764064 /* UIView+Effects.h */,
-				18CE144825C2B73A00764064 /* UIView+Effects.m */,
+				18CE143B25C2AC4E00764064 /* UIView+Effects.h */,
+				18CE143A25C2AC4E00764064 /* UIView+Effects.m */,
 				1864D29324FCCCF6003A359F /* UIDevice+UUID.h */,
 				1864D29224FCCCF6003A359F /* UIDevice+UUID.m */,
 				1827FFC524F77DC90042BD66 /* UIButton+Extension.h */,
@@ -1082,13 +1089,13 @@
 			isa = PBXGroup;
 			children = (
 				18369D2225BA7B1E003FC3E8 /* 首页页面 */,
-				183A323D25E0ED1A008EAB1E /* 房东推荐 */,
 				18369CFB25BA762C003FC3E8 /* 我的租约 */,
 				18369D0725BA7765003FC3E8 /* 我的房源 */,
 				18369D0F25BA78F1003FC3E8 /* 签约确认 */,
 				18369D1325BA79DD003FC3E8 /* 租客合同 */,
 				18369D1B25BA7A64003FC3E8 /* 房屋委托 */,
 				18369D1D25BA7A97003FC3E8 /* 装修 */,
+				183A31B925DF656C008EAB1E /* 房东推荐 */,
 			);
 			path = "首页";
 			sourceTree = "<group>";
@@ -1346,8 +1353,8 @@
 				18EEC4C0257A39C2002D2DDD /* HomeView.m */,
 				18213ED624F63CE4000B939F /* HomeSelectCell.h */,
 				18213ED724F63CE4000B939F /* HomeSelectCell.m */,
-				183EBE7925C10A4E00645237 /* QrCodeView.h */,
-				183EBE7A25C10A4E00645237 /* QrCodeView.m */,
+				183EBEBB25C118D800645237 /* QrCodeView.h */,
+				183EBEBA25C118D800645237 /* QrCodeView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1551,6 +1558,7 @@
 				18213F1724F64DC9000B939F /* CommonlyUsedTools.m */,
 				18213F1924F64DC9000B939F /* MeToolItemCell.h */,
 				18213F1824F64DC9000B939F /* MeToolItemCell.m */,
+				182AF376261EEAF20007AB46 /* GoSignView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1689,31 +1697,31 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		183A322C25E0ECD3008EAB1E /* Tools */ = {
+		183A31B925DF656C008EAB1E /* 房东推荐 */ = {
 			isa = PBXGroup;
 			children = (
-				183A322D25E0ECD3008EAB1E /* NetTool.swift */,
-				183A322E25E0ECD3008EAB1E /* CommonTool.swift */,
-				183A322F25E0ECD3008EAB1E /* FastTool.swift */,
-			);
-			path = Tools;
-			sourceTree = "<group>";
-		};
-		183A323D25E0ED1A008EAB1E /* 房东推荐 */ = {
-			isa = PBXGroup;
-			children = (
-				183A323E25E0ED1A008EAB1E /* Controller */,
+				183A31BA25DF658E008EAB1E /* Controller */,
 			);
 			path = "房东推荐";
 			sourceTree = "<group>";
 		};
-		183A323E25E0ED1A008EAB1E /* Controller */ = {
+		183A31BA25DF658E008EAB1E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				183A323F25E0ED1A008EAB1E /* LandlordRecommendVC.swift */,
-				183A324025E0ED1A008EAB1E /* RecommendNowVC.swift */,
+				183A320625DF9FFA008EAB1E /* LandlordRecommendVC.swift */,
+				183A320A25DFA48F008EAB1E /* RecommendNowVC.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		183A321525DFC816008EAB1E /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				183A322025DFCB4C008EAB1E /* CommonTool.swift */,
+				185088232599CF2800699B46 /* NetTool.swift */,
+				185088052599C71700699B46 /* FastTool.swift */,
+			);
+			path = Tools;
 			sourceTree = "<group>";
 		};
 		185005532578B577006B32F3 /* 智能门锁 */ = {
@@ -1947,14 +1955,14 @@
 		18BC5241255A895C0056C249 /* 支付管理 */ = {
 			isa = PBXGroup;
 			children = (
-				18CE151625C92B6900764064 /* CheckPayPasswordVC.h */,
-				18CE151525C92B6900764064 /* CheckPayPasswordVC.m */,
 				18BC5242255A89F10056C249 /* PayManagerVC.h */,
 				18BC5243255A89F10056C249 /* PayManagerVC.m */,
 				18BC526C255A97190056C249 /* PayPasswordVC.h */,
 				18BC526D255A971A0056C249 /* PayPasswordVC.m */,
 				18BC528B255D01830056C249 /* SetPayPassWordVC.h */,
 				18BC528C255D01830056C249 /* SetPayPassWordVC.m */,
+				18CE150025C7DD4C00764064 /* CheckPayPasswordVC.h */,
+				18CE150125C7DD4C00764064 /* CheckPayPasswordVC.m */,
 			);
 			path = "支付管理";
 			sourceTree = "<group>";
@@ -2053,7 +2061,7 @@
 				18BC52EC255E89C70056C249 /* CheckBankCardNumVC.m */,
 				18BC51CF255929F30056C249 /* AddBankCardNumberVC.h */,
 				18BC51D0255929F30056C249 /* AddBankCardNumberVC.m */,
-				18CE150F25C92B1C00764064 /* AddAliPayVC.swift */,
+				18CE14F625C7A8AD00764064 /* AddAliPayVC.swift */,
 				18EC585A2558DFDE00A393EA /* AddBankCardVC.h */,
 				18EC585B2558DFDE00A393EA /* AddBankCardVC.m */,
 				18BC5275255BC8B90056C249 /* BankSelectVC.h */,
@@ -2102,6 +2110,7 @@
 				1826C36124EFF9FC0016E725 /* Resources */,
 				1831128125624603009802FC /* Embed Frameworks */,
 				C234D2B7D3650B75A3679A83 /* [CP] Embed Pods Frameworks */,
+				6F7D72350E7BC0F4B4792135 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -2220,6 +2229,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		6F7D72350E7BC0F4B4792135 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-full_lease_landlord/Pods-full_lease_landlord-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-full_lease_landlord/Pods-full_lease_landlord-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-full_lease_landlord/Pods-full_lease_landlord-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		C234D2B7D3650B75A3679A83 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -2286,8 +2312,8 @@
 				185005872578B577006B32F3 /* UpdateLockPasswordVC.m in Sources */,
 				18213F3924F66187000B939F /* CddHud.m in Sources */,
 				1860074D25075BE5000A3F94 /* AppGlobalSet.m in Sources */,
-				183A323025E0ECD3008EAB1E /* NetTool.swift in Sources */,
 				1871B4FB2589D93900C4ED00 /* WithdrawalRecordVC.m in Sources */,
+				18CE152925C93D9C00764064 /* TimeAbout.swift in Sources */,
 				1827001324FA267A0042BD66 /* LeaseContractDetailVC.m in Sources */,
 				18263B6B2506161E00625600 /* IncomeModel.m in Sources */,
 				182AC6202609B40400CB0097 /* MyLeaseDetailVC.m in Sources */,
@@ -2298,6 +2324,7 @@
 				18369C7F25B56A62003FC3E8 /* SwiftPch.swift in Sources */,
 				1837ECEC254A8BB9001453A9 /* WebViewVC.m in Sources */,
 				18BC52BF255D3BD50056C249 /* WalletIncomeCell.m in Sources */,
+				18CE151D25C92CAC00764064 /* UILabel+Extension.swift in Sources */,
 				1850064E2578DAD1006B32F3 /* PCCircle.m in Sources */,
 				185006512578DAD1006B32F3 /* CALayer+Anim.m in Sources */,
 				18213F0624F6458B000B939F /* BankCardView.m in Sources */,
@@ -2329,14 +2356,12 @@
 				18BC5287255BE4C40056C249 /* BankCardModel.m in Sources */,
 				18369CCB25B80AB5003FC3E8 /* UITableView+Extension.m in Sources */,
 				1826C36E24EFF9FC0016E725 /* ViewController.m in Sources */,
-				183A323125E0ECD3008EAB1E /* CommonTool.swift in Sources */,
 				1826C3C124F001990016E725 /* UITextField+Limit.m in Sources */,
 				1827DCB325AD89A50073E02C /* MyLease.swift in Sources */,
 				184260DB259DB49000255441 /* NetMacro.swift in Sources */,
 				1850058C2578B577006B32F3 /* DoorLockNumberModel.m in Sources */,
 				18213F0A24F6458B000B939F /* MyBillListCell.m in Sources */,
 				185006522578DAD1006B32F3 /* PCCircleInfoView.m in Sources */,
-				18CE150B25C92AFE00764064 /* String+Extension.swift in Sources */,
 				18EC585C2558DFDE00A393EA /* AddBankCardVC.m in Sources */,
 				18213F1624F64737000B939F /* HelperTool.m in Sources */,
 				1842621325A705B800255441 /* UIView+Extension.swift in Sources */,
@@ -2347,6 +2372,7 @@
 				1827001924FA601F0042BD66 /* QuickTool.m in Sources */,
 				1827000424F8E9B50042BD66 /* ZukeModel.m in Sources */,
 				1827FFFB24F8A7E30042BD66 /* SignLeaseConCell.m in Sources */,
+				185088062599C71700699B46 /* FastTool.swift in Sources */,
 				1827001024FA0CCC0042BD66 /* CountDown.m in Sources */,
 				1850058E2578B577006B32F3 /* SendKeyTimeCell.m in Sources */,
 				18213EE824F6450D000B939F /* HouseResourceDetailVC.m in Sources */,
@@ -2367,7 +2393,8 @@
 				18F306CA251CA6FD007CFA6D /* PayModel.m in Sources */,
 				1826C3BE24F001990016E725 /* UIImage+Color.m in Sources */,
 				18EC58502557FA0100A393EA /* BankCardListCell.m in Sources */,
-				18CE144A25C2B73B00764064 /* UIView+Effects.m in Sources */,
+				18CE150225C7DD4C00764064 /* CheckPayPasswordVC.m in Sources */,
+				18CE143C25C2AC4E00764064 /* UIView+Effects.m in Sources */,
 				1864D29424FCCCF6003A359F /* UIDevice+UUID.m in Sources */,
 				1827350D24FF8A470014A0C1 /* KSGuaidViewManager.m in Sources */,
 				180456CA2521DCF7003B23D3 /* TestSwift.swift in Sources */,
@@ -2379,17 +2406,18 @@
 				1827FFF724F8A5C70042BD66 /* SignLeaseConListVC.m in Sources */,
 				185005F62578CFC3006B32F3 /* GKPageControl.m in Sources */,
 				18263B62250238F800625600 /* LandInfoModel.m in Sources */,
+				18CE146825C3E4AE00764064 /* String+Extension.swift in Sources */,
 				1827DCB925AD8E550073E02C /* UITableView+Extension.swift in Sources */,
-				18CE141525C17A7700764064 /* PublicPara.swift in Sources */,
+				18CE13D725C1701700764064 /* PublicPara.swift in Sources */,
 				18213EE724F6450D000B939F /* EmptyCompensationVC.m in Sources */,
 				1826C3D024F008C70016E725 /* HomePageVC.m in Sources */,
-				183A323825E0ECE4008EAB1E /* TimeAbout.swift in Sources */,
 				18EC54562554086200A393EA /* MyWalletCell.m in Sources */,
 				18BC5301255FC3500056C249 /* SelectBankCardView.m in Sources */,
 				18BC51D1255929F30056C249 /* AddBankCardNumberVC.m in Sources */,
 				1827FFD324F78E130042BD66 /* MessageListCell.m in Sources */,
 				18263B652505CD5800625600 /* IncomeHeaderView.m in Sources */,
 				18BC5277255BC8B90056C249 /* BankSelectVC.m in Sources */,
+				182AF377261EEAF20007AB46 /* GoSignView.swift in Sources */,
 				18213F4D24F687C8000B939F /* IncomeListVC.m in Sources */,
 				18213F2924F64EE0000B939F /* ImgBtn.m in Sources */,
 				1827DCC625ADA9230073E02C /* BaseTableViewCell.swift in Sources */,
@@ -2399,15 +2427,15 @@
 				18213ED524F63961000B939F /* HomeSelectView.m in Sources */,
 				1850058F2578B577006B32F3 /* SendKeyCell.m in Sources */,
 				18BC524E255A8B390056C249 /* PayManagerCell.m in Sources */,
-				183EBE7B25C10A4E00645237 /* QrCodeView.m in Sources */,
+				183EBEBC25C118D800645237 /* QrCodeView.m in Sources */,
 				1827350E24FF8A470014A0C1 /* KSGuaidViewController.m in Sources */,
 				182734FF24FE5A390014A0C1 /* MsgTypeListVC.m in Sources */,
 				1858FFF32562382900E593C8 /* NSAttributedString+AvoidCrash.m in Sources */,
 				18213ECE24F62E62000B939F /* BannerModel.m in Sources */,
 				185005832578B577006B32F3 /* KeyManagerDetailVC.m in Sources */,
 				1827FFBA24F75ADB0042BD66 /* TimeAbout.m in Sources */,
-				18CE151025C92B1C00764064 /* AddAliPayVC.swift in Sources */,
 				1827FFCB24F780960042BD66 /* UpdateView.m in Sources */,
+				183A322125DFCB4C008EAB1E /* CommonTool.swift in Sources */,
 				18213ED224F62F42000B939F /* NetTool.m in Sources */,
 				18BC52E4255E792C0056C249 /* MyBankCardCheckCell.m in Sources */,
 				18BC52ED255E89C70056C249 /* CheckBankCardNumVC.m in Sources */,
@@ -2433,6 +2461,7 @@
 				182FF484251E003800042DC9 /* PayStateVC.m in Sources */,
 				1827001624FA3FBC0042BD66 /* DevelopTool.m in Sources */,
 				1850058A2578B577006B32F3 /* SmartDoorInfoModel.m in Sources */,
+				18CE14F725C7A8AE00764064 /* AddAliPayVC.swift in Sources */,
 				1826C3AE24EFFCD40016E725 /* CustomNavBar.m in Sources */,
 				18BC52DE255E77EA0056C249 /* MyBankCardListCheckVC.m in Sources */,
 				18BC531C255FFC1D0056C249 /* WalletModel.m in Sources */,
@@ -2448,9 +2477,8 @@
 				1826C3C024F001990016E725 /* UIImage+Extension.m in Sources */,
 				1827351224FF97A80014A0C1 /* BillModel.m in Sources */,
 				18BC526E255A971A0056C249 /* PayPasswordVC.m in Sources */,
-				183A323225E0ECD3008EAB1E /* FastTool.swift in Sources */,
 				1858FFF22562382900E593C8 /* NSMutableAttributedString+AvoidCrash.m in Sources */,
-				183A324125E0ED1A008EAB1E /* LandlordRecommendVC.swift in Sources */,
+				183A320725DF9FFA008EAB1E /* LandlordRecommendVC.swift in Sources */,
 				1827FFBB24F75ADB0042BD66 /* AlertSystem.m in Sources */,
 				1827FFE124F7CAE30042BD66 /* IncomeDetailVC.m in Sources */,
 				18BC51EA25594F360056C249 /* MutableCellModel.m in Sources */,
@@ -2461,9 +2489,8 @@
 				1858FFF02562382900E593C8 /* NSObject+AvoidCrash.m in Sources */,
 				1858FFED2562382900E593C8 /* NSDictionary+AvoidCrash.m in Sources */,
 				1826C3C224F001990016E725 /* UIColor+Hex.m in Sources */,
-				183A324225E0ED1A008EAB1E /* RecommendNowVC.swift in Sources */,
+				183A320B25DFA48F008EAB1E /* RecommendNowVC.swift in Sources */,
 				1826C3BF24F001990016E725 /* UIView+Extension.m in Sources */,
-				18CE151725C92B6A00764064 /* CheckPayPasswordVC.m in Sources */,
 				1827000D24F8FFC90042BD66 /* SignOnlineVC.m in Sources */,
 				1864D29724FCD51F003A359F /* OwnerIfonVC.m in Sources */,
 				1826C3A824EFFBCE0016E725 /* AppDelegate+Init.m in Sources */,
@@ -2481,7 +2508,7 @@
 				18213F3F24F66B24000B939F /* UserInfoManager.m in Sources */,
 				1858FFEC2562382900E593C8 /* NSString+AvoidCrash.m in Sources */,
 				1858FFF42562382900E593C8 /* AvoidCrash.m in Sources */,
-				18CE150C25C92AFE00764064 /* UIImage+Extension.swift in Sources */,
+				18CE146425C3BB4200764064 /* UIImage+Extension.swift in Sources */,
 				185005882578B577006B32F3 /* SendKeyViewController.m in Sources */,
 				18213F2424F64E17000B939F /* MyBillVC.m in Sources */,
 				18213F4A24F6861B000B939F /* LeaseContractCell.m in Sources */,
@@ -2491,6 +2518,7 @@
 				182AC6462609CC3600CB0097 /* MyLeaseDetailSecHeader.swift in Sources */,
 				18213F3624F6595C000B939F /* CustomTextfieldView.m in Sources */,
 				1827FFF424F899BF0042BD66 /* SignConfirmVC.m in Sources */,
+				185088242599CF2800699B46 /* NetTool.swift in Sources */,
 				185005932578B577006B32F3 /* SmartDoorLockView.m in Sources */,
 				1827FFEB24F7E6B20042BD66 /* LeaseBillChildVC.m in Sources */,
 				18EC544F2553F7FD00A393EA /* MyWalletVC.m in Sources */,
@@ -2671,7 +2699,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = Z95SYJA589;
+				DEVELOPMENT_TEAM = 34QF648657;
 				ENABLE_BITCODE = NO;
 				"EXCLUDED_SOURCE_FILE_NAMES[arch=*]" = (
 					AipBase.framework,
@@ -2693,9 +2721,9 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/full_lease_landlord/Libs/ThirdParty/Weixin",
 				);
-				MARKETING_VERSION = 2.2.2;
+				MARKETING_VERSION = 2.2.3;
 				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS -DDEBUG";
-				PRODUCT_BUNDLE_IDENTIFIER = com.yzh.yezhu;
+				PRODUCT_BUNDLE_IDENTIFIER = com.girders.qzhLandlord;
 				PRODUCT_MODULE_NAME = full_lease_landlord;
 				PRODUCT_NAME = full_lease_landlord;
 				SWIFT_OBJC_BRIDGING_HEADER = "full_lease_landlord/SwiftCode/full_lease_landlord-Bridging-Header.h";
@@ -2716,7 +2744,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = Z95SYJA589;
+				DEVELOPMENT_TEAM = 34QF648657;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2733,8 +2761,8 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/full_lease_landlord/Libs/ThirdParty/Weixin",
 				);
-				MARKETING_VERSION = 2.2.2;
-				PRODUCT_BUNDLE_IDENTIFIER = com.yzh.yezhu;
+				MARKETING_VERSION = 2.2.3;
+				PRODUCT_BUNDLE_IDENTIFIER = com.girders.qzhLandlord;
 				PRODUCT_MODULE_NAME = full_lease_landlord;
 				PRODUCT_NAME = full_lease_landlord;
 				SWIFT_OBJC_BRIDGING_HEADER = "full_lease_landlord/SwiftCode/full_lease_landlord-Bridging-Header.h";

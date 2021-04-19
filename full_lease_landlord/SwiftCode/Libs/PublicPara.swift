@@ -57,7 +57,7 @@ public class PublicPara: NSObject {
     }
     
     @objc class func mainColorStr() -> String {
-        "#FA6619"
+        "#28C3CE"
     }
     
     

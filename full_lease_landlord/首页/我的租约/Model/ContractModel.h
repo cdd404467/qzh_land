@@ -34,6 +34,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy)NSString *firstpay;
 //押金
 @property (nonatomic, copy)NSString *deposit;
+//1-纸质合同 2-电子合同
+@property (nonatomic, assign)NSInteger eleccontract;
 
 /************************************************* 详情 *********************************************/
 //租金分阶

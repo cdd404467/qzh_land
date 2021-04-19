@@ -23,24 +23,29 @@
 
 
 - (void)requestConAddress {
-    NSDictionary *dict = @{@"id":_conID};
-    
+    NSDictionary *dict = @{@"id":_conID,
+                           @"contractType":@(_type)
+    };
+    [CddHud show:self.view];
     [NetTool postRequest:URLPost_Con_Download Params:dict Success:^(id  _Nonnull json) {
         if (JsonCode == 200) {
             [self downLoadConWithURL:json[@"data"][@"data"]];
-        } 
+        } else {
+            [CddHud hideHUD:self.view];
+        }
     } Failure:^(NSError * _Nonnull error) {
-        
+        [CddHud hideHUD:self.view];
     }];
 }
 
 
 - (void)downLoadConWithURL:(NSString *)url {
     [NetTool downLoadRequest:url Params:nil Success:^(id  _Nonnull json) {
+        [CddHud hideHUD:self.view];
 //        NSLog(@"---- %@",json);
         [self previewPDF:json];
     } Failure:^(NSError * _Nonnull error) {
-        
+        [CddHud hideHUD:self.view];
     }];
 }
 

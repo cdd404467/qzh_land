@@ -18,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 typedef void(^TapClick)(NSInteger index);
 @interface MyLeaseDetailTopView : UIView
 @property (nonatomic, copy)TapClick tapClick;
+- (instancetype)initWithArray:(NSArray *)array;
 @end
 
 @interface StageView : UIView

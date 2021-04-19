@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface PreviewConVC : BaseViewController
 @property (nonatomic, copy)NSString *conID;
+//0 - 租客 1-托管业主 2-业主
+@property (nonatomic, assign)NSInteger type;
 @end
 
 NS_ASSUME_NONNULL_END

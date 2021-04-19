@@ -23,12 +23,15 @@
 @interface MineVC ()<CommonlyUsedToolsDelegate>
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) UIButton *userImg;
-@property (nonatomic,weak) UILabel *clickTitle;
+@property (nonatomic, strong) UILabel *clickTitle;
 @property (nonatomic, strong) UILabel *totalMoneyLab;
 @property (nonatomic, strong)UIButton *eyesBtn;
-@property (nonatomic, strong)UILabel *msgTitle;
-@property (nonatomic, strong)UIView *bottomView;
+@property (nonatomic, strong)UIView *headView;
 @property (nonatomic, strong)UIButton *msgBtn;
+@property (nonatomic, strong)GoSignView *conView;
+@property (nonatomic, strong)GoSignView *agreementView;
+@property (nonatomic, assign)NSInteger conCount;
+@property (nonatomic, assign)NSInteger ownerConCount;
 @end
 
 @implementation MineVC
@@ -71,7 +74,9 @@
         [self requestInfo];
     } else {
         self.clickTitle.text = @"立即登录";
-        self.bottomView.hidden = YES;
+        self.conView.hidden = YES;
+        self.agreementView.hidden = YES;
+        [self changeFrame];
         [self.msgBtn pp_hiddenBadge];
         [self displayMoney];
     }
@@ -94,48 +99,65 @@
             } else {
                 [self.msgBtn pp_hiddenBadge];
             }
-            //待签约条数接
+            //租客合同待签约条数接
             NSInteger count = [json[@"data"][@"totalNums"] integerValue];
+            self.conCount = count;
             if (count > 0) {
-                self.bottomView.hidden = NO;
+                self.conView.hidden = NO;
             } else {
-                self.bottomView.hidden = YES;
+                self.conView.hidden = YES;
             }
-            self.msgTitle.text = [NSString stringWithFormat:@"你有%ld份待签约合同",count];
+            self.conView.msgTitle.text = [NSString stringWithFormat:@"你有%ld份待签约合同",count];
+            //业主合同待签约条数
+            NSInteger ownerCount = [json[@"data"][@"ownerTotalNums"] integerValue];
+            self.ownerConCount = ownerCount;
+            if (ownerCount > 0) {
+                self.agreementView.hidden = NO;
+            } else {
+                self.agreementView.hidden = YES;
+            }
+            self.agreementView.msgTitle.text = [NSString stringWithFormat:@"你有%ld份待签约服务协议",ownerCount];
         }
         [self.scrollView.mj_header endRefreshing];
+        [self changeFrame];
     } Failure:^(NSError * _Nonnull error) {
         [self.scrollView.mj_header endRefreshing];
     }];
+}
+
+- (void)changeFrame {
+    if (self.conView.hidden == NO && self.agreementView.hidden == NO) {
+        [self.agreementView mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.top.mas_equalTo(self.conView.mas_bottom).offset(KFit_W(10));
+            make.left.right.height.mas_equalTo(self.conView);
+        }];
+    } else if (self.conView.hidden == YES && self.agreementView.hidden == YES) {
+        [self.agreementView mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.top.mas_equalTo(self.conView);
+            make.left.right.mas_equalTo(self.conView);
+            make.height.mas_equalTo(0);
+        }];
+    } else {
+        [self.agreementView mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.top.mas_equalTo(self.conView);
+            make.left.right.height.mas_equalTo(self.conView);
+        }];
+    }
 }
 
 - (void)setupUI {
     [self.view addSubview:self.scrollView];
     
     CGFloat paddingLR = KFit_W(16);
-    
     UIView *headView = [[UIView alloc] init];
-    headView.frame = CGRectMake(paddingLR, KFit_W(30),SCREEN_WIDTH - paddingLR * 2,KFit_W(210));
-    
-    /**阴影处理*/
-    headView.layer.backgroundColor = [UIColor colorWithRed:255/255.0 green:254/255.0 blue:255/255.0 alpha:1.0].CGColor;
-    headView.layer.cornerRadius = 4;
-    headView.layer.shadowColor = [UIColor colorWithRed:0/255.0 green:0/255.0 blue:0/255.0 alpha:0.05].CGColor;
-    headView.layer.shadowOffset = CGSizeMake(-1,2);
+    headView.layer.backgroundColor = UIColor.whiteColor.CGColor;
+    headView.layer.cornerRadius = 5;
+    headView.layer.shadowColor = HEXColor(@"#000000", 0.09).CGColor;
+    headView.layer.shadowOffset = CGSizeMake(0,0);
     headView.layer.shadowOpacity = 1;
     headView.layer.shadowRadius = 5;
-    
-    UIView *viewShadow = [[UIView alloc] init];
-    viewShadow.frame = CGRectMake(paddingLR,KFit_W(30),SCREEN_WIDTH - paddingLR * 2,KFit_W(210));
-    viewShadow.layer.backgroundColor = [UIColor colorWithRed:255/255.0 green:254/255.0 blue:255/255.0 alpha:1.0].CGColor;
-    viewShadow.layer.cornerRadius = 4;
-    viewShadow.layer.shadowColor = [UIColor colorWithRed:0/255.0 green:0/255.0 blue:0/255.0 alpha:0.05].CGColor;
-    viewShadow.layer.shadowOffset = CGSizeMake(2,-1);
-    viewShadow.layer.shadowOpacity = 1;
-    viewShadow.layer.shadowRadius = 5;
-    
-    [self.scrollView addSubview:viewShadow];
     [self.scrollView addSubview:headView];
+    _headView = headView;
     
     UIView *topHeadRow = [[UIView alloc] initWithFrame:CGRectMake(0, KFit_W(14), headView.width, KFit_W(70))];
     [headView addSubview:topHeadRow];
@@ -161,11 +183,15 @@
     self.clickTitle  = clickTitle;
     [topHeadRow addSubview:clickTitle];
     
-    UIButton *msgBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, KFit_W(24), KFit_W(24))];
+    UIButton *msgBtn = [[UIButton alloc] init];
     [msgBtn setImage:[UIImage imageNamed:@"msg_navbar_icon"] forState:UIControlStateNormal];
     [msgBtn addTarget:self action:@selector(jumpToMessage) forControlEvents:UIControlEventTouchUpInside];
-    msgBtn.right = topHeadRow.width - KFit_W(12);
     [topHeadRow addSubview:msgBtn];
+    [msgBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.mas_equalTo(CGSizeMake(KFit_W(24), KFit_W(24)));
+        make.right.mas_equalTo(topHeadRow.mas_right).offset(-KFit_W(12));
+        make.top.mas_equalTo(0);
+    }];
     _msgBtn = msgBtn;
     
     UILabel *totaltxt = [[UILabel alloc] initWithFrame:CGRectMake(_userImg.left, topHeadRow.bottom + KFit_W(15), 70, 15)];
@@ -189,33 +215,54 @@
     _totalMoneyLab.text = isUserLogin ? User_Money : @"0";
     [headView addSubview:_totalMoneyLab];
     
-    _bottomView = [[UIView alloc] initWithFrame:CGRectMake(KFit_W(24), headView.height - KFit_W(40), KFit_W(295), KFit_W(28))];
-    _bottomView.layer.cornerRadius = KFit_W(14);
-    _bottomView.backgroundColor = HEXColor(@"#F1FBFC", 1);
-    [headView addSubview:_bottomView];
-    _bottomView.hidden = YES;
+    GoSignView *conView = [[GoSignView alloc] init];
+    [conView.signingBtn addTarget:self action:@selector(goSignOnline) forControlEvents:UIControlEventTouchUpInside];
+    conView.hidden = YES;
+    conView.layer.cornerRadius = KFit_W(14);
+    [headView addSubview:conView];
+    [conView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(self.totalMoneyLab.mas_bottom).offset(KFit_W(28));
+        make.left.mas_equalTo(KFit_W(15));
+        make.right.mas_equalTo(KFit_W(-15));
+        make.height.mas_equalTo(KFit_W(28));
+    }];
+    _conView = conView;
     
-    _msgTitle = [[UILabel alloc] init];
-    _msgTitle.font = kFont(12);
-    _msgTitle.textColor = HEXColor(@"#606266", 1);
-    [_bottomView addSubview:_msgTitle];
-    [_msgTitle mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(KFit_W(14));
-        make.centerY.mas_equalTo(self.bottomView);
+    GoSignView *agreementView = [[GoSignView alloc] init];
+    [agreementView.signingBtn addTarget:self action:@selector(goAgreeMent) forControlEvents:UIControlEventTouchUpInside];
+    agreementView.hidden = YES;
+    agreementView.layer.cornerRadius = conView.layer.cornerRadius;
+    [headView addSubview:agreementView];
+    [agreementView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(self.conView);
+        make.left.right.mas_equalTo(self.conView);
+        make.height.mas_equalTo(0);
+    }];
+    _agreementView = agreementView;
+    
+    [headView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(self.view.mas_left).offset(paddingLR);
+        make.right.mas_equalTo(self.view.mas_right).offset(-paddingLR);
+        make.top.mas_equalTo(KFit_W(30));
+        make.bottom.mas_equalTo(agreementView.mas_bottom).offset(KFit_W(15));
     }];
     
-    UIButton *signingBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, KFit_W(42), _bottomView.height)];
-    [signingBtn setTitle:@"去签约" forState:UIControlStateNormal];
-    [signingBtn setTitleColor:HEXColor(@"#64D9C1", 1) forState:UIControlStateNormal];
-    [signingBtn addTarget:self action:@selector(goSignOnline) forControlEvents:UIControlEventTouchUpInside];
-    signingBtn.titleLabel.font = kFont(12);
-    signingBtn.right = _bottomView.width - KFit_W(14);
-       signingBtn.centerY = _bottomView.height * 0.5;
-    [_bottomView addSubview:signingBtn];
+    [topHeadRow mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(0);
+        make.top.mas_equalTo(KFit_W(14));
+        make.width.mas_equalTo(headView);
+        make.height.mas_equalTo(KFit_W(70));
+    }];
     
-    CommonlyUsedTools *tools = [[CommonlyUsedTools alloc] initWithFrame:CGRectMake(0, headView.bottom + KFit_W(60), SCREEN_WIDTH, KFit_W(50) * 2 + KFit_W(32))];
+    CommonlyUsedTools *tools = [[CommonlyUsedTools alloc] init];
     tools.delegate = self;
     [self.scrollView addSubview:tools];
+    [tools mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(self.view.mas_left).offset(0);
+        make.top.mas_equalTo(headView.mas_bottom).offset(KFit_W(60));
+        make.width.mas_equalTo(SCREEN_WIDTH);
+        make.height.mas_equalTo(KFit_W(50) * 2 + KFit_W(32));
+    }];
 }
 
 #pragma mark - 代理点击事件
@@ -249,8 +296,17 @@
 
 - (void)goSignOnline {
     SignLeaseConListVC *vc = [[SignLeaseConListVC alloc] init];
+    vc.count = self.conCount;
     [self.navigationController pushViewController:vc animated:YES];
 }
+
+- (void)goAgreeMent {
+    MyLeaseVC *vc = [[MyLeaseVC alloc] init];
+    vc.type = 2;
+    vc.count = self.ownerConCount;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 
 - (void)moneyCanSee {
     _eyesBtn.selected = !_eyesBtn.selected;

@@ -23,9 +23,7 @@
 #define RGBA(r, g, b, a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)]
 #define RGBA_F(r, g, b, a) [UIColor colorWithRed:(r) green:(g) blue:(b) alpha:(a)]
 //全局主题色
-//#28C3CE
 #define MainColor [UIColor colorWithHexString:[PublicPara mainColorStr]]
-
 #define Like_Color HEXColor(@"#ededed", 1)
 #define Line_Color RGBA(232, 232, 232, 1)
 #define Cell_Line_Color HEXColor(@"#EEEEEE", 1)
@@ -70,7 +68,7 @@
 #define JsonCode [json[@"code"] integerValue]
 
 #define BR_Appearance [AppGlobalSet pickViewStyle]
-#define wxAppID @"wx91b2968de624ca9a"
+#define wxAppID @"wx2a1f65135ba300ff"
 
 
 //判断后台返回数据是合法的

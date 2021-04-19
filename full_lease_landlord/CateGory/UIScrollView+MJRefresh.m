@@ -66,6 +66,7 @@ typedef void(^LoadMoreBlock)(NSInteger pageIndex);
     } else {
         self.mj_footer.hidden = NO;
     }
+    
     if (count < self.pageCount || count < 5) {
         [self.mj_header endRefreshing];
         [self.mj_footer endRefreshingWithNoMoreData];

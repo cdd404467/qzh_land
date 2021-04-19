@@ -14,6 +14,8 @@
 #import "ContactManagerVC.h"
 #import <AFNetworking.h>
 #import "UITableView+Extension.h"
+#import "UIScrollView+MJRefresh.h"
+#import "ContractConfirmVC.h"
 
 @interface MyLeaseVC ()<UITableViewDelegate, UITableViewDataSource,DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
 @property (nonatomic, strong)UITableView *tableView;
@@ -44,12 +46,10 @@
             weakself.pageNumber = pageIndex;
             [weakself requestList];
         }];
-
         [_tableView addFooterWithRefresh:^(NSInteger pageIndex) {
             weakself.pageNumber = pageIndex;
             [weakself requestList];
         }];
-
         _tableView.mj_header.ignoredScrollViewContentInsetTop = 10;
     }
     return _tableView;
@@ -63,16 +63,36 @@
 }
 
 - (void)requestList {
-    NSDictionary *dict = @{@"userPhone":User_Phone,
-                           @"pageNumber":@(self.pageNumber)
-    };
-    [NetTool postRequest:URLPost_Con_List Params:dict Success:^(id  _Nonnull json) {
+//    NSDictionary *dict = @{@"userPhone":User_Phone,
+//                           @"pageNumber":@(self.pageNumber)
+//    };
+    
+    NSMutableDictionary *mDict = [NSMutableDictionary dictionaryWithCapacity:0];
+    mDict[@"userPhone"] = User_Phone;
+    mDict[@"pageNumber"] = @(self.pageNumber);
+    if (_type == 2) {
+        mDict[@"status"] = @1;
+    }
+    
+    [NetTool postRequest:URLPost_Con_List Params:mDict Success:^(id  _Nonnull json) {
         if ([json[@"code"] integerValue] == 200) {
             NSArray *tempArr = [ContractModel mj_objectArrayWithKeyValuesArray:json[@"data"][@"dataList"]];
             if (self.pageNumber == 1) {
                 [self.dataSource removeAllObjects];
             }
             [self.dataSource addObjectsFromArray:tempArr];
+            if (self.count == 1) {
+                ContractConfirmVC *vc = [[ContractConfirmVC alloc] init];
+                vc.conID = [self.dataSource[0] conID];
+                vc.type = 2;
+                NSMutableArray *mArr = [self.navigationController.viewControllers mutableCopy];
+                [mArr removeObject:self];
+                self.navigationController.viewControllers = [mArr copy];
+                [self.navigationController pushViewController:vc animated:NO];
+                
+                
+                return;
+            }
             [self.tableView endRefreshWithDataCount:tempArr.count];
             [self.tableView reloadData];
         }
@@ -120,6 +140,11 @@
     } else if (_type == 1) {
         ContactManagerVC *vc = [[ContactManagerVC alloc] init];
         vc.conID = [self.dataSource[indexPath.row] conID];
+        [self.navigationController pushViewController:vc animated:YES];
+    } else if (_type == 2) {
+        ContractConfirmVC *vc = [[ContractConfirmVC alloc] init];
+        vc.conID = [self.dataSource[indexPath.row] conID];
+        vc.type = 2;
         [self.navigationController pushViewController:vc animated:YES];
     }
 }

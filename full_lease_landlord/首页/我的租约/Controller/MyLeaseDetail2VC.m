@@ -14,7 +14,7 @@
 #import "OwnerIfonVC.h"
 #import "MyBillVC.h"
 #import "PreviewConVC.h"
-
+#import "ContractConfirmVC.h"
 
 
 @interface MyLeaseDetail2VC ()<UITableViewDelegate, UITableViewDataSource>
@@ -57,7 +57,7 @@
 - (void)requestData {
     NSString *urlString = [NSString stringWithFormat:URLGet_Con_Detail,_conID];
     [NetTool getRequest:urlString Params:nil Success:^(id  _Nonnull json) {
-        NSLog(@"----- %@",json);
+//        NSLog(@"----- %@",json);
         if ([json[@"code"] integerValue] == 200) {
             self.dataSource = [ContractModel mj_objectWithKeyValues:json[@"data"]];
             self.dataSource.grading = [GradingModel mj_objectArrayWithKeyValuesArray:self.dataSource.grading];
@@ -67,6 +67,7 @@
             self.headerView.addressLab.text = self.dataSource.adress;
             self.headerView.stateTxt = self.dataSource.statusStr;
             [self.tableView reloadData];
+            [self.headerView disPlayDownLoad:self.dataSource];
         }
     } Failure:^(NSError * _Nonnull error) {
         
@@ -80,6 +81,12 @@
         DDWeakSelf;
         _headerView.tapClick = ^(NSInteger index) {
             [weakself jumpIndex:index];
+        };
+        _headerView.goSign = ^{
+            ContractConfirmVC *vc = [[ContractConfirmVC alloc] init];
+            vc.conID = weakself.conID;
+            vc.type = 2;
+            [weakself.navigationController pushViewController:vc animated:YES];
         };
     }
     return _headerView;
@@ -98,6 +105,7 @@
     } else {
         PreviewConVC *vc = [[PreviewConVC alloc] init];
         vc.conID = _conID;
+        vc.type = 2;
         [self.navigationController pushViewController:vc animated:YES];
     }
 }
@@ -246,6 +254,7 @@
 
 @interface MyLeaseDetailTBHeader()
 @property (nonatomic, strong)UILabel *stateLab;
+@property (nonatomic, strong)UIButton *goSignBtn;
 @end
 
 @implementation MyLeaseDetailTBHeader
@@ -262,6 +271,7 @@
 - (void)setupUI {
     UIImageView *bgImg = [[UIImageView alloc] init];
     bgImg.image = [UIImage imageNamed:@"zuyue_header_bg"];
+    bgImg.userInteractionEnabled = YES;
     [self addSubview:bgImg];
     [bgImg mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(0);
@@ -271,13 +281,28 @@
     icon.frame = CGRectMake(KFit_W(18), KFit_W(116), KFit_W(44), KFit_W(44));
     [bgImg addSubview:icon];
     
+    UIButton *goSignBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    goSignBtn.titleLabel.font = [UIFont systemFontOfSize:15];
+    [goSignBtn setTitle:@"去签约" forState:UIControlStateNormal];
+    [goSignBtn setTitleColor:MainColor forState:UIControlStateNormal];
+    goSignBtn.adjustsImageWhenHighlighted = NO;
+    goSignBtn.hidden = YES;
+    [goSignBtn setContentHuggingPriority:UILayoutPriorityDefaultHigh forAxis:UILayoutConstraintAxisHorizontal];
+    [goSignBtn addTarget:self action:@selector(goSignPage) forControlEvents:UIControlEventTouchUpInside];
+    [bgImg addSubview:goSignBtn];
+    [goSignBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.mas_equalTo(-KFit_W(12));
+        make.top.mas_equalTo(icon);
+        make.height.mas_equalTo(25);
+    }];
+    _goSignBtn = goSignBtn;
+    
     UILabel *addressLab = [[UILabel alloc] init];
-    addressLab.font = [UIFont systemFontOfSize:18];;
+    addressLab.font = [UIFont systemFontOfSize:17];;
     addressLab.textColor = HEXColor(@"#111111", 1);
     [bgImg addSubview:addressLab];
     [addressLab mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(icon.mas_right).offset(12);
-        make.right.mas_equalTo(-5);
         make.top.mas_equalTo(icon);
         make.height.mas_equalTo(25);
     }];
@@ -324,7 +349,6 @@
             make.height.mas_equalTo(KFit_W(50));
             make.width.mas_equalTo(width);
         }];
-        
         if (i == 2) {
             iconBtn.hidden = YES;
         }
@@ -345,4 +369,36 @@
     }
 }
 
+- (void)goSignPage {
+    if (self.goSign) {
+        self.goSign();
+    }
+}
+
+- (void)disPlayDownLoad:(ContractModel *)model {
+    UIButton *btn = (UIButton *)[self viewWithTag:2];
+    //待签约显示去签约按钮，没有合同下载
+    if (model.status == 1) {
+        [self.addressLab mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.right.mas_equalTo(self.goSignBtn.mas_left).offset(-2);
+            self.goSignBtn.hidden = NO;
+        }];
+        btn.hidden = YES;
+    }
+    //不是待签约
+    else {
+        [self.addressLab mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.right.mas_equalTo(-5);
+            self.goSignBtn.hidden = YES;
+        }];
+        //电子合同
+        if (model.eleccontract == 2) {
+            btn.hidden = NO;
+        }
+        //纸质合同
+        else {
+            btn.hidden = YES;
+        }
+    }
+}
 @end

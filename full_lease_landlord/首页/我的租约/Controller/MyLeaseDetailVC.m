@@ -14,6 +14,7 @@
 #import "OwnerIfonVC.h"
 #import "MyBillVC.h"
 #import "PreviewConVC.h"
+#import "ContractConfirmVC.h"
 
 @interface MyLeaseDetailVC ()
 @property (nonatomic, strong)UIScrollView *scrollView;
@@ -24,7 +25,7 @@
 @end
 
 @implementation MyLeaseDetailVC
-
+//托管业主
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = HEXColor(@"#f8f8f8", 1);
@@ -46,12 +47,17 @@
         vc.conID = _conID;
         [self.navigationController pushViewController:vc animated:YES];
     } else if (index == 1) {
+        EmptyCompensationVC *vc = [[EmptyCompensationVC alloc] init];
+        vc.conID = _conID;
+        [self.navigationController pushViewController:vc animated:YES];
+    } else if (index == 2) {
         MyBillVC *vc = [[MyBillVC alloc] init];
         vc.conID = _conID;
         [self.navigationController pushViewController:vc animated:YES];
     } else {
         PreviewConVC *vc = [[PreviewConVC alloc] init];
         vc.conID = _conID;
+        vc.type = 1;
         [self.navigationController pushViewController:vc animated:YES];
     }
 }
@@ -70,10 +76,63 @@
     }];
 }
 
+- (void)goSign {
+    ContractConfirmVC *vc = [[ContractConfirmVC alloc] init];
+    vc.conID = self.conID;
+    vc.type = 2;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 - (void)setupUI:(ContractModel *)model {
     [self.view addSubview:self.scrollView];
+
+    if (model.status == 1) {
+        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, NAV_HEIGHT, SCREEN_WIDTH, KFit_W(40))];
+        view.backgroundColor = HEXColor(@"#F1FBFC", 1);
+        view.layer.shadowColor = HEXColor(@"#000000", 0.15).CGColor;
+        view.layer.shadowOffset = CGSizeMake(0,1);
+        view.layer.shadowOpacity = 1;
+        view.layer.shadowRadius = 3;
+        [self.view addSubview:view];
+        
+        self.scrollView.top = self.scrollView.top + view.height;
+        self.scrollView.height = self.scrollView.height - view.height;
+        
+        UILabel *label = [[UILabel alloc] init];
+        label.text = @"你有一份待签约合同";
+        label.textColor = HEXColor(@"#333333", 1);
+        label.font = kFont(12);
+        [view addSubview:label];
+        [label mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.mas_equalTo(KFit_W(20));
+            make.centerY.mas_equalTo(view);
+        }];
+        
+        UIButton *goSingBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [goSingBtn setTitle:@"去签约" forState:UIControlStateNormal];
+        [goSingBtn setTitleColor:MainColor forState:UIControlStateNormal];
+        goSingBtn.titleLabel.font = kFont(13);
+        [goSingBtn addTarget:self action:@selector(goSign) forControlEvents:UIControlEventTouchUpInside];
+        goSingBtn.adjustsImageWhenHighlighted = NO;
+        [view addSubview:goSingBtn];
+        [goSingBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.width.mas_equalTo(KFit_W(44));
+            make.right.mas_equalTo(-KFit_W(16));
+            make.height.mas_equalTo(KFit_W(20));
+            make.centerY.mas_equalTo(label);
+        }];
+        
+    }
     
-    MyLeaseDetailTopView *topView = [[MyLeaseDetailTopView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, KFit_W(116))];
+    NSMutableArray *array = [NSMutableArray arrayWithObjects:@"业主信息",@"空置赔偿金",@"账单信息", nil];
+    if (model.status != 1) {
+        if (model.eleccontract == 2) {
+            [array addObject:@"下载电子合同"];
+        }
+    }
+    
+    MyLeaseDetailTopView *topView = [[MyLeaseDetailTopView alloc] initWithArray:array.copy];
+    topView.frame = CGRectMake(0, 0, SCREEN_WIDTH, KFit_W(116));
     topView.backgroundColor = UIColor.whiteColor;
     DDWeakSelf;
     topView.tapClick = ^(NSInteger index) {
@@ -295,24 +354,31 @@
 
 @implementation MyLeaseDetailTopView
 
-- (instancetype)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
+//- (instancetype)initWithFrame:(CGRect)frame
+//{
+//    self = [super initWithFrame:frame];
+//    if (self) {
+//        [self setupUI];
+//    }
+//    return self;
+//}
+
+- (instancetype)initWithArray:(NSArray *)array {
+    self = [super init];
     if (self) {
-        [self setupUI];
+        [self setupUI:array];
     }
     return self;
 }
 
-- (void)setupUI {
-    NSArray *titleArr = @[@"业主信息",@"账单信息",@"下载电子合同"];
-    NSArray *iconArr = @[@"zuyue_icon_download_con",@"zuyue_icon_info",@"zuyue_icon_order"];
+- (void)setupUI:(NSArray *)array {
+    NSArray *iconArr = @[@"zuyue_icon_download_con",@"zuyue_icon_empty",@"zuyue_icon_info",@"zuyue_icon_order"];
     
     CGFloat width = KFit_W(48);
-    CGFloat leftGap = KFit_W(45);
-    CGFloat centerGap = (SCREEN_WIDTH - leftGap * 2 - width * titleArr.count) / (titleArr.count - 1);
+    CGFloat leftGap = array.count == 4 ? KFit_W(25) : KFit_W(45);
+    CGFloat centerGap = (SCREEN_WIDTH - leftGap * 2 - width * array.count) / (array.count - 1);
     
-    for (NSInteger i = 0;i < titleArr.count; i++) {
+    for (NSInteger i = 0;i < array.count; i++) {
         UIImageView *imageView = [[UIImageView alloc] init];
         imageView.layer.cornerRadius = width / 2;
         imageView.clipsToBounds = YES;
@@ -327,7 +393,7 @@
         [HelperTool addTapGesture:imageView withTarget:self andSEL:@selector(tapView:)];
         
         UILabel *nameLab = [[UILabel alloc] init];
-        nameLab.text = titleArr[i];
+        nameLab.text = array[i];
         nameLab.numberOfLines = 2;
         nameLab.textColor = HEXColor(@"#262626", 1);
         nameLab.font = kFont(13);
@@ -347,6 +413,9 @@
         self.tapClick(tapView.tag);
     }
 }
+
+
+
 @end
 
 @implementation StageView

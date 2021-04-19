@@ -124,7 +124,6 @@
                            @"payFrom":payType,
                            @"appId":wxAppID
     };
-    NSLog(@"===== %@",dict);
     [NetTool postRequest:URLPost_Pay_Online Params:dict Success:^(id  _Nonnull json) {
         NSLog(@"------ %@",json);
         if (JsonCode == 200) {
@@ -174,7 +173,7 @@
 }
 
 - (void)payWithAliPay {
-    NSString *scheme = @"yzhyezhu";
+    NSString *scheme = @"qzhLandlord";
     NSString *order = _resultData.pay_info;
     [[AlipaySDK defaultService] payOrder:order fromScheme:scheme callback:^(NSDictionary *resultDic) {
         if ([resultDic[@"resultStatus"] integerValue] == 9000) {

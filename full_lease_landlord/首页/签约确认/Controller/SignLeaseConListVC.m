@@ -74,6 +74,16 @@
                 [self.dataSource removeAllObjects];
             }
             [self.dataSource addObjectsFromArray:tempArr];
+            if (self.count == 1) {
+                SignConfirmVC *vc = [[SignConfirmVC alloc] init];
+                vc.model = self.dataSource[0];
+                NSMutableArray *mArr = [self.navigationController.viewControllers mutableCopy];
+                [mArr removeObject:self];
+                self.navigationController.viewControllers = [mArr copy];
+                [self.navigationController pushViewController:vc animated:NO];
+                return;
+            }
+            
             [self.tableView endRefreshWithDataCount:tempArr.count];
             [self.tableView reloadData];
             if (self.dataSource.count > 0) {

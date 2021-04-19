@@ -71,10 +71,15 @@
 #define URLPost_Land_AgreeOrRefuse @"landlord/landlordcont/updateContract"
 //调用电子签约
 #define URLPost_Sign_Online @"landlord/landlordcont/applySign"
+//调用电子签约(业主合同)
+#define URLPost_Sign_OnlineOwner @"landlord/landlordcont/signCompanyLandlord"
 //在线签约--更新租金价格
 #define URLPost_ChangeMoney_SignOnline @"contract/bill/convertRequestToNet/updateHousePriceChangeContract"
 //预览租客合同
 #define URLPost_Preview_Con @"contract/contract/morenQuery"
+//预览业主合同
+#define URLPost_Preview_OwerCon @"landlord/landlordcont/previewcontract"
+
 //获取签约状态
 #define URLPost_Sign_State @"contract/contract/GetBothSignStatus"
 
@@ -180,5 +185,6 @@
 #define URLGet_landlady_Login @"member/smartDevices/landladyLogin"
 //系统配置
 #define URLPost_System_Setting @"contract/bill/convertRequestToNet/configurationnet"
+
 
 #endif /* NetWorkPort_h */

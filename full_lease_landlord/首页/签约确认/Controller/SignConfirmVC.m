@@ -204,6 +204,7 @@
             if (sender.tag == 11) {
                 ContractConfirmVC *vc = [[ContractConfirmVC alloc] init];
                 vc.conID = self.model.contract.conID;
+                vc.type = 1;
                 [self.navigationController pushViewController:vc animated:YES];
             } else if (sender.tag == 12) {
                 if (self.refuseSuccess) {

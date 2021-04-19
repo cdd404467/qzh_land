@@ -40,8 +40,14 @@
     NSDictionary *dict = @{@"id":_conID,
                            @"isRenters":@1
     };
+    NSString *urlString = [NSString string];
+    if (_type == 1) {
+        urlString = URLPost_Sign_Online;
+    } else if (_type == 2) {
+        urlString = URLPost_Sign_OnlineOwner;
+    }
     
-    [NetTool postRequest:URLPost_Sign_Online Params:dict Success:^(id  _Nonnull json) {
+    [NetTool postRequest:urlString Params:dict Success:^(id  _Nonnull json) {
         if (JsonCode == 200) {
             [self loadWebView:json[@"data"]];
             [self.navBar.leftBtn removeTarget:nil action:NULL forControlEvents:UIControlEventAllEvents];
@@ -62,6 +68,10 @@
 }
 
 - (void)checkSignState {
+    if (_type == 2) {
+        [self.navigationController popToRootViewControllerAnimated:YES];
+        return;;
+    }
     NSDictionary *dict = @{@"id":_conID,
                            @"isRenters":@1
     };

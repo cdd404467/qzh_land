@@ -18,7 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navTitle = @"轻资产服务";
+    self.navTitle = @"房屋委托";
     [self setupUI];
 }
 

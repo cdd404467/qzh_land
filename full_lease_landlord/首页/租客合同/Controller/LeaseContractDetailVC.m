@@ -46,6 +46,7 @@
     } else {
         PreviewConVC *vc = [[PreviewConVC alloc] init];
         vc.conID = _conID;
+        vc.type = 0;
         [self.navigationController pushViewController:vc animated:YES];
     }
 }

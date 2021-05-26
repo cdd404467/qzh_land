@@ -99,7 +99,7 @@
             } else {
                 [self.msgBtn pp_hiddenBadge];
             }
-            //租客合同待签约条数接
+            //租客合同待签约条数
             NSInteger count = [json[@"data"][@"totalNums"] integerValue];
             self.conCount = count;
             if (count > 0) {

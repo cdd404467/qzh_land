@@ -115,10 +115,11 @@ class AddAliPayVC: BaseViewController {
                                   "account":accountTF.text ?? "",
                                   "userid":User_Id
         ]
-        
+        CddHud.show(view)
         NetReq.request(url: "member/bank/insertZfb", parameters: dict).success {(json) in
             print(json)
             if json["code"].intValue == 200 {
+                CddHud.hide(self.view)
                 CddHud.showTextOnly("添加成功", view: self.view)
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                     NotificationCenter.default.post(name: .init(NotificationName_AddBankCardSuccess), object: nil)
